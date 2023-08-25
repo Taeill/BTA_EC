@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerDomage : MonoBehaviour
 {
     [SerializeField] bool _inputPunch = false;
-    [SerializeField] float _nextPunchTime=0f;
+    //[SerializeField] float _nextPunchTime=0f;
 
 
     // Start is called before the first frame update
