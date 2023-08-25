@@ -18,8 +18,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float _speed;
     //[SerializeField] bool isWalk = false;
     [Header("Animation")]
-    [SerializeField] Animator animator;
-    [SerializeField] string animationWalk;
+    [SerializeField] Animator _animator;
+    [SerializeField] string _animationWalk;
     float _horizontalDirection;
 
 
@@ -50,11 +50,11 @@ public class PlayerMovement : MonoBehaviour
 
         if (_rb2d.velocity.magnitude > 0)
         {
-            animator.SetBool("Walk", true);
+            _animator.SetBool("Walk", true);
         }
         else
         {
-            animator.SetBool("Walk", false);
+            _animator.SetBool("Walk", false);
         }
 
         if (_rb2d.velocity.x >= 0.1)
@@ -70,31 +70,7 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-    public void Count(InputAction.CallbackContext context)
-    {
-
-
-        switch (context.phase)
-        {
-
-
-            case InputActionPhase.Started:
-
-                Debug.Log(" Event Started");
-                break;
-            case InputActionPhase.Performed:
-                Debug.Log("Event Performed");
-
-                break;
-            case InputActionPhase.Canceled:
-
-                Debug.Log("Event Canceled");
-                break;
-
-        }
-
-
-    }
+    
 
 
 
