@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
+using static UnityEngine.Rendering.DebugUI;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class PlayerMovement : MonoBehaviour
@@ -44,19 +45,30 @@ public class PlayerMovement : MonoBehaviour
     }
     public void Move(InputAction.CallbackContext context)
     {
+       
         _rb2d.velocity = context.ReadValue<Vector2>() * _speed;
 
         if (_rb2d.velocity.magnitude > 0)
         {
             animator.SetBool("Walk", true);
-
         }
         else
         {
             animator.SetBool("Walk", false);
         }
 
+        if (_rb2d.velocity.x >= 0.1)
+        {
+            transform.root.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+        }
+        else if (_rb2d.velocity.x <= 0.1)
+        {
+            transform.root.transform.rotation = Quaternion.Euler(new Vector3(0, 180, 0));
+        }
+
     }
+
+
 
     public void Count(InputAction.CallbackContext context)
     {
