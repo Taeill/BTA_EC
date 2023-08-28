@@ -39,7 +39,8 @@ public class Enemy_Movement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.transform.gameObject.GetComponent<PlayerMovement>() != null)
+        
+        if (collision.transform.root.GetComponent<PlayerMovement>() != null)
         {
             _playerInRange = true;
         }
@@ -47,7 +48,7 @@ public class Enemy_Movement : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.transform.gameObject.GetComponent<PlayerMovement>() != null)
+        if (collision.transform.root.GetComponent<PlayerMovement>() != null)
         {
             _playerInRange = false;
         }
@@ -64,7 +65,7 @@ public class Enemy_Movement : MonoBehaviour
         {
             
 
-            if(Vector3.Distance(transform.position, PlayerMovement.Instance.transform.position) <= 1)
+            if (Vector3.Distance(transform.position, PlayerMovement.Instance.transform.position) <= 1)
             {
                 _Animator.SetTrigger("Attack");
                 _enemyVelocity = Vector3.zero;
