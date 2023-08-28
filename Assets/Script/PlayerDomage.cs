@@ -13,7 +13,7 @@ public class PlayerDomage : MonoBehaviour
     [SerializeField] string _animationPunch2;
     [SerializeField] string _animationPunch3;
     [SerializeField] int _countPunch = 0;
-
+    [SerializeField] Character_Reaction _reactionManager;
     List<Collider2D> _collidingObject = new List<Collider2D>();
 
     //[SerializeField] float _nextPunchTime=0f;
@@ -32,12 +32,12 @@ public class PlayerDomage : MonoBehaviour
     }
     public void Punch(InputAction.CallbackContext context)
     {
-        Debug.Log("83435845438435");
+       
         switch (context.phase)
         {
             case InputActionPhase.Started:
                 _inputPunch = true;
-                Debug.Log("bloup");
+                
                 break;
             case InputActionPhase.Canceled:
                 _inputPunch = false;
@@ -92,6 +92,9 @@ public class PlayerDomage : MonoBehaviour
                     Debug.Log("Touché!");
 
                     h.TakeDomage();
+                    _reactionManager.Blinking(collider.transform.root.GetComponentsInChildren<SpriteRenderer>()[0].transform.gameObject);
+                    _reactionManager.Knockback(collider.transform.root.gameObject, this.gameObject);
+                    collider.transform.root.gameObject.GetComponent<Health>().TakeDomage();
                 }
             }
         }
