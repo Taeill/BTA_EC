@@ -45,35 +45,58 @@ public class PlayerMovement : MonoBehaviour
     }
     public void Move(InputAction.CallbackContext context)
     {
-       
+
         _rb2d.velocity = context.ReadValue<Vector2>() * _speed;
 
-        if (_rb2d.velocity.magnitude > 0)
+
+        //if (_rb2d.velocity.magnitude > 0)
+        //{
+        //    _animator.SetBool("Walk", true);
+        //}
+        //else
+        //{
+        //    _animator.SetBool("Walk", false);
+        //}
+
+        if (_rb2d.velocity.x >= 0.1)
         {
+            transform.root.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
             _animator.SetBool("Walk", true);
+        }
+        else if (_rb2d.velocity.x <= -0.1)
+        {
+            transform.root.transform.rotation = Quaternion.Euler(new Vector3(0, 180, 0));
+            _animator.SetBool("Walk", true);
+
         }
         else
         {
             _animator.SetBool("Walk", false);
         }
+    }
+    public void Rotate(InputAction.CallbackContext context)
+    {
+        Vector2 lookAtPosition = context.ReadValue<Vector2>();
+        lookAtPosition = Camera.main.ScreenToWorldPoint(lookAtPosition);
 
-        if (_rb2d.velocity.x >= 0.1)
+        if (context.control.name == "position")
         {
-            transform.root.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+            Vector2 playerPosition = new Vector2(transform.position.x, 0);
+            lookAtPosition -= playerPosition;
         }
-        else if (_rb2d.velocity.x <= 0.1)
-        {
-            transform.root.transform.rotation = Quaternion.Euler(new Vector3(0, 180, 0));
-        }
+
 
     }
 
-
-
-    
-
-
-
 }
+
+
+
+
+
+
+
+
+
 
 
