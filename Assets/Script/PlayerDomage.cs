@@ -10,7 +10,7 @@ public class PlayerDomage : MonoBehaviour
     [SerializeField] Animator _animator;
     [SerializeField] string _animationPunch;
 
-    List<GameObject> _collidingObject = new List<GameObject>();
+    List<Collider2D> _collidingObject = new List<Collider2D>();
 
     //[SerializeField] float _nextPunchTime=0f;
 
@@ -50,7 +50,7 @@ public class PlayerDomage : MonoBehaviour
     }
 
 
-    List<GameObject> CheckCollider()
+    List<Collider2D> CheckCollider()
     {
         return _collidingObject;
     }
@@ -59,26 +59,29 @@ public class PlayerDomage : MonoBehaviour
     //Check la liste de rentree
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        _collidingObject.Add(collision.gameObject);
+        _collidingObject.Add(collision);
     }
     //Check la list de sortie
     private void OnTriggerExit2D(Collider2D collision)
     {
-        _collidingObject.Remove(collision.gameObject);
+        _collidingObject.Remove(collision);
     }
 
     public void AttackPlayer()
     {
-        if(CheckCollider().Count > 0) 
+        if (CheckCollider().Count > 0)
         {
-        foreach(var collider in _collidingObject)
+            foreach (var collider in _collidingObject)
             {
-                if(collider.transform.root.GetComponent<Enemy_Behavior>() != null)
+                var h = collider.attachedRigidbody.GetComponent<Health>();
+                if (h != null)
                 {
-                    Debug.Log("Test");
+                    Debug.Log("Touché!");
+
+                    h.TakeDomage();
                 }
             }
         }
     }
-  
+
 }
