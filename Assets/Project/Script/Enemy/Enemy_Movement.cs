@@ -23,7 +23,7 @@ public class Enemy_Movement : MonoBehaviour
         set
         {
             _rgbd2d.velocity = value;
-            _Animator.SetFloat("Velocity", value.magnitude);
+            _Animator.SetFloat("Speed", value.magnitude*10);
             
             if (value.x >= 0.1) 
             {
