@@ -10,6 +10,7 @@ public class Punch : MonoBehaviour
     {
         //Debug.Log("Tap");
         _playerDomage.AttackPlayer();
+
     }
     
 }

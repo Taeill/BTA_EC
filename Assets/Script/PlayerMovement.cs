@@ -62,16 +62,18 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.root.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
             _animator.SetBool("Walk", true);
+            _animator.SetFloat("Speed", 10f);
         }
         else if (_rb2d.velocity.x <= -0.1)
         {
             transform.root.transform.rotation = Quaternion.Euler(new Vector3(0, 180, 0));
             _animator.SetBool("Walk", true);
-
+            _animator.SetFloat("Speed", 10f);
         }
         else
         {
             _animator.SetBool("Walk", false);
+            _animator.SetFloat("Speed", 0f);
         }
     }
     public void Rotate(InputAction.CallbackContext context)
