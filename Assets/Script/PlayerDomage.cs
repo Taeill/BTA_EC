@@ -1,0 +1,102 @@
+using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+public class PlayerDomage : MonoBehaviour
+{
+    [SerializeField] bool _inputPunch = false;
+
+    [SerializeField] Animator _animator;
+    [SerializeField] string _animationPunch;
+    [SerializeField] string _animationPunch2;
+    [SerializeField] string _animationPunch3;
+    [SerializeField] int _countPunch = 0;
+    [SerializeField] Character_Reaction _reactionManager;
+    List<Collider2D> _collidingObject = new List<Collider2D>();
+
+    //[SerializeField] float _nextPunchTime=0f;
+
+
+    // Start is called before the first frame update
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+    public void Punch(InputAction.CallbackContext context)
+    {
+       
+        switch (context.phase)
+        {
+            case InputActionPhase.Started:
+                _inputPunch = true;
+                
+                break;
+            case InputActionPhase.Canceled:
+                _inputPunch = false;
+                break;
+            default:
+                break;
+
+
+        }
+        if (_inputPunch == true)
+        {
+            _animator.SetTrigger("Attack");
+            _animator.SetInteger("NumberAttack", _countPunch);
+
+            if (_countPunch ==2)
+            {
+                _countPunch = -1;
+            }
+            _countPunch++;
+            _inputPunch = false;
+        }
+
+    }
+
+
+    List<Collider2D> CheckCollider()
+    {
+        return _collidingObject;
+    }
+
+
+    //Check la liste de rentree
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        _collidingObject.Add(collision);
+    }
+    //Check la list de sortie
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        _collidingObject.Remove(collision);
+    }
+
+    public void AttackPlayer()
+    {
+        if (CheckCollider().Count > 0)
+        {
+            foreach (var collider in _collidingObject)
+            {
+                var h = collider.attachedRigidbody.GetComponent<Health>();
+                if (h != null)
+                {
+                    Debug.Log("Touché!");
+
+                    h.TakeDomage();
+                    _reactionManager.Blinking(collider.transform.root.GetComponentsInChildren<SpriteRenderer>()[0].transform.gameObject);
+                    _reactionManager.Knockback(collider.transform.root.gameObject, this.gameObject);
+                }
+            }
+        }
+    }
+
+}
