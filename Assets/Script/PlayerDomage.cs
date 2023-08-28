@@ -7,8 +7,12 @@ using UnityEngine.InputSystem;
 public class PlayerDomage : MonoBehaviour
 {
     [SerializeField] bool _inputPunch = false;
+
     [SerializeField] Animator _animator;
     [SerializeField] string _animationPunch;
+    [SerializeField] string _animationPunch2;
+    [SerializeField] string _animationPunch3;
+    [SerializeField] int _countPunch = 0;
 
     List<Collider2D> _collidingObject = new List<Collider2D>();
 
@@ -28,10 +32,12 @@ public class PlayerDomage : MonoBehaviour
     }
     public void Punch(InputAction.CallbackContext context)
     {
+        Debug.Log("83435845438435");
         switch (context.phase)
         {
             case InputActionPhase.Started:
                 _inputPunch = true;
+                Debug.Log("bloup");
                 break;
             case InputActionPhase.Canceled:
                 _inputPunch = false;
@@ -43,8 +49,15 @@ public class PlayerDomage : MonoBehaviour
         }
         if (_inputPunch == true)
         {
-            _animator.SetTrigger("Punch");
+            _animator.SetTrigger("Attack");
+            _animator.SetInteger("NumberAttack", _countPunch);
 
+            if (_countPunch ==2)
+            {
+                _countPunch = -1;
+            }
+            _countPunch++;
+            _inputPunch = false;
         }
 
     }
