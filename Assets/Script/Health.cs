@@ -16,7 +16,8 @@ public class Health : MonoBehaviour
         _currentHealth = _hpMax;
     }
     // Start is called before the first frame update
-  
+
+    
     public bool IsDead()
     {
         if (_currentHealth <= 0) return true;
