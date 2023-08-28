@@ -94,7 +94,6 @@ public class PlayerDomage : MonoBehaviour
                     h.TakeDomage();
                     _reactionManager.Blinking(collider.transform.root.GetComponentsInChildren<SpriteRenderer>()[0].transform.gameObject);
                     _reactionManager.Knockback(collider.transform.root.gameObject, this.gameObject);
-                    collider.transform.root.gameObject.GetComponent<Health>().TakeDomage();
                 }
             }
         }
