@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
 {
+    [SerializeField] Character_Reaction _reactionManager;
+    [SerializeField] SpriteRenderer _spriterender;
 
-    List <GameObject> _collidingObject = new List <GameObject>();
+    List <Collider2D> _collidingObject = new List <Collider2D>();
 
     
     
@@ -18,24 +20,26 @@ public class EnemyAttack : MonoBehaviour
                 if (collider.transform.root.GetComponent<PlayerMovement>() != null)
                 {
                     //SendAttack
-                    Debug.Log("maisnnonmaisc'estunedingzomg");
+                    _reactionManager.Blinking(collider.transform.root.GetComponentsInChildren<SpriteRenderer>()[0].transform.gameObject);
+                    _reactionManager.Knockback(collider.transform.root.gameObject, this.gameObject);
+                    collider.transform.root.gameObject.GetComponent<Health>().TakeDomage();
                 }
             }
         }
     }
     
-    List<GameObject> CheckCollider()
+    List<Collider2D> CheckCollider()
     {
         return _collidingObject;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        _collidingObject.Add(collision.gameObject);
+        _collidingObject.Add(collision);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        _collidingObject.Remove(collision.gameObject);
+        _collidingObject.Remove(collision);
     }
 }
