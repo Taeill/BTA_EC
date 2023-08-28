@@ -6,6 +6,8 @@ using UnityEngine.InputSystem;
 public class PlayerDomage : MonoBehaviour
 {
     [SerializeField] bool _inputPunch = false;
+    [SerializeField] Animator _animator;
+    [SerializeField] string animationPunch;
     //[SerializeField] float _nextPunchTime=0f;
 
 
@@ -26,15 +28,20 @@ public class PlayerDomage : MonoBehaviour
         {
             case InputActionPhase.Started:
                 _inputPunch = true;
-                Debug.Log("tap");
                 break;
                 case InputActionPhase.Canceled:
-                _inputPunch = false;
-                Debug.Log("NotTap");
+                _inputPunch = false;  
                 break;
             default:
                 break;
+
+                
         }  
+        if(_inputPunch ==true) 
+        {
+        _animator.SetTrigger("Punch");
+        }
+       
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
+using static UnityEngine.Rendering.DebugUI;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class PlayerMovement : MonoBehaviour
@@ -17,8 +18,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float _speed;
     //[SerializeField] bool isWalk = false;
     [Header("Animation")]
-    [SerializeField] Animator animator;
-    [SerializeField] string animationWalk;
+    [SerializeField] Animator _animator;
+    [SerializeField] string _animationWalk;
     float _horizontalDirection;
 
 
@@ -44,45 +45,32 @@ public class PlayerMovement : MonoBehaviour
     }
     public void Move(InputAction.CallbackContext context)
     {
+       
         _rb2d.velocity = context.ReadValue<Vector2>() * _speed;
 
         if (_rb2d.velocity.magnitude > 0)
         {
-            animator.SetBool("Walk", true);
-
+            _animator.SetBool("Walk", true);
         }
         else
         {
-            animator.SetBool("Walk", false);
+            _animator.SetBool("Walk", false);
         }
 
-    }
-
-    public void Count(InputAction.CallbackContext context)
-    {
-
-
-        switch (context.phase)
+        if (_rb2d.velocity.x >= 0.1)
         {
-
-
-            case InputActionPhase.Started:
-
-                Debug.Log(" Event Started");
-                break;
-            case InputActionPhase.Performed:
-                Debug.Log("Event Performed");
-
-                break;
-            case InputActionPhase.Canceled:
-
-                Debug.Log("Event Canceled");
-                break;
-
+            transform.root.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+        }
+        else if (_rb2d.velocity.x <= 0.1)
+        {
+            transform.root.transform.rotation = Quaternion.Euler(new Vector3(0, 180, 0));
         }
 
-
     }
+
+
+
+    
 
 
 

@@ -1,28 +1,54 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Health : MonoBehaviour
 {
     public string m_damagingTag = "";
     [Header("Health")]
-    [SerializeField] int _healthPoints = 3;
+    [SerializeField] int _currentHealth = 3;
     [SerializeField] int _hpMax = 3;
 
 
     private void Awake()
     {
-        _healthPoints = _hpMax;
+        _currentHealth = _hpMax;
     }
     // Start is called before the first frame update
-    void Start()
+  
+    public bool IsDead()
     {
-        
+        if (_currentHealth <= 0) return true;
+        else return false;
     }
+    public void TakeDomage()
 
-    // Update is called once per frame
-    void Update()
     {
-        
+        if (gameObject.CompareTag("Player"))
+        {
+
+            if (_currentHealth > 0)
+            {
+                _currentHealth--;
+                GameManager.instance.SuppLife(1);
+            }
+        }
+        else if(IsDead()) 
+        {
+            Debug.Log("Destroy");
+        }
+        if(gameObject.CompareTag("Enemi"))
+        {
+            if( _currentHealth >0) 
+            {
+            _currentHealth--;
+            }
+            else if (IsDead())
+            {
+           Destroy(gameObject);
+            }
+        }
     }
+    
 }
