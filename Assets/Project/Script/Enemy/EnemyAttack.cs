@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
 {
+    [SerializeField] Character_Reaction _reactionManager;
+    [SerializeField] SpriteRenderer _spriterender;
 
     List <GameObject> _collidingObject = new List <GameObject>();
 
@@ -19,6 +21,8 @@ public class EnemyAttack : MonoBehaviour
                 {
                     //SendAttack
                     Debug.Log("maisnnonmaisc'estunedingzomg");
+                    _reactionManager.Blinking(_spriterender.transform.gameObject);
+                    _reactionManager.Knockback(transform.root.gameObject);
                 }
             }
         }
