@@ -273,6 +273,18 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 291240826587342633, guid: 5201ffd8955f3ae42b084440fa4d0751, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 291240826587342633, guid: 5201ffd8955f3ae42b084440fa4d0751, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 291240826587342633, guid: 5201ffd8955f3ae42b084440fa4d0751, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 291240826587342633, guid: 5201ffd8955f3ae42b084440fa4d0751, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.96
       objectReference: {fileID: 0}
@@ -312,6 +324,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 291240826587342633, guid: 5201ffd8955f3ae42b084440fa4d0751, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1314325441152412345, guid: 5201ffd8955f3ae42b084440fa4d0751, type: 3}
       propertyPath: m_Size.x
       value: 0.12684321
@@ -320,6 +336,10 @@ PrefabInstance:
       propertyPath: m_Offset.x
       value: 0.13089073
       objectReference: {fileID: 0}
+    - target: {fileID: 6674002453556878925, guid: 5201ffd8955f3ae42b084440fa4d0751, type: 3}
+      propertyPath: _combo
+      value: 
+      objectReference: {fileID: 1596447527}
     - target: {fileID: 6674002453556878925, guid: 5201ffd8955f3ae42b084440fa4d0751, type: 3}
       propertyPath: _reactionManager
       value: 
@@ -534,6 +554,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b52d694efea4d9e4a9dae1f67f018fcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _score: 0
+  _textPlayerLife: {fileID: 0}
+  _textScore: {fileID: 0}
   _lifePlayer: 3
 --- !u!4 &1596447526
 Transform:
