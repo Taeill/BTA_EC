@@ -5,9 +5,21 @@ using UnityEngine;
 public class Character_Reaction : MonoBehaviour
 {
     [SerializeField] Material _blinkMat;
-    public void Knockback(GameObject target, GameObject sender)
+    [SerializeField] Material _basicCharacterMat;
+
+
+    public void Hit(GameObject target, GameObject sender)
     {
-        StartCoroutine(Knockbacking(target, sender));        
+        target.transform.root.GetComponentInChildren<Animator>().SetTrigger("Hit");
+        target.transform.root.gameObject.GetComponent<Health>().TakeDomage();
+        Blinking(target.transform.root.GetComponentsInChildren<SpriteRenderer>()[0].transform.gameObject);
+    }
+    public void HitKnockback(GameObject target, GameObject sender)
+    {
+        target.transform.root.GetComponentInChildren<Animator>().SetTrigger("Knockbacked");
+        target.transform.root.gameObject.GetComponent<Health>().TakeDomage();
+        StartCoroutine(Knockbacking(target, sender));
+        Blinking(target.transform.root.GetComponentsInChildren<SpriteRenderer>()[0].transform.gameObject);
     }
 
     public void Blinking(GameObject a)
@@ -23,14 +35,12 @@ public class Character_Reaction : MonoBehaviour
 
     IEnumerator Blink(SpriteRenderer currentSprite)
     {
-        Material currentMat = currentSprite.material;
-
         for (int i = 0; i < 2; i++)
         {
             yield return new WaitForSeconds(0.1f);
             currentSprite.material = _blinkMat;
             yield return new WaitForSeconds(0.1f);
-            currentSprite.material = currentMat;
+            currentSprite.material = _basicCharacterMat;
         }
 
         
@@ -38,7 +48,7 @@ public class Character_Reaction : MonoBehaviour
 
     IEnumerator Knockbacking(GameObject target, GameObject sender)
     {
-            Rigidbody2D currentRgbd = target.GetComponent<Rigidbody2D>();
+            Rigidbody2D currentRgbd = target.transform.root.GetComponent<Rigidbody2D>();
             currentRgbd.bodyType = RigidbodyType2D.Dynamic;
             currentRgbd.AddForce(new Vector2((target.transform.position.x - sender.transform.position.x), 0).normalized * 300);
             yield return new WaitForSeconds(0.1f);
