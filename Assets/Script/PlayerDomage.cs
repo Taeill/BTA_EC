@@ -7,7 +7,6 @@ using UnityEngine.InputSystem;
 public class PlayerDomage : MonoBehaviour
 {
     [SerializeField] bool _inputPunch = false;
-
     [SerializeField] Animator _animator;
     [SerializeField] string _animationPunch;
     [SerializeField] string _animationPunch2;
@@ -93,7 +92,7 @@ public class PlayerDomage : MonoBehaviour
 
                     h.TakeDomage();
                     _reactionManager.Blinking(collider.transform.root.GetComponentsInChildren<SpriteRenderer>()[0].transform.gameObject);
-                    _reactionManager.Knockback(collider.transform.root.gameObject, this.gameObject);
+                    _reactionManager.HitKnockback(collider.transform.root.gameObject, this.gameObject);
                 }
             }
         }
