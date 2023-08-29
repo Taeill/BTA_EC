@@ -7,6 +7,8 @@ public class EnemyAttack : MonoBehaviour
     [SerializeField] Character_Reaction _reactionManager;
     [SerializeField] SpriteRenderer _spriterender;
 
+    [SerializeField] Combo _combo;
+
     List <Collider2D> _collidingObject = new List <Collider2D>();
 
     
@@ -20,9 +22,10 @@ public class EnemyAttack : MonoBehaviour
                 if (collider.transform.root.GetComponent<PlayerMovement>() != null)
                 {
                     //SendAttack
-                    _reactionManager.Blinking(collider.transform.root.GetComponentsInChildren<SpriteRenderer>()[0].transform.gameObject);
-                    _reactionManager.Knockback(collider.transform.root.gameObject, this.gameObject);
-                    collider.transform.root.gameObject.GetComponent<Health>().TakeDomage();
+                    _combo.Comboing(collider.transform.gameObject,transform.gameObject);
+                    //_reactionManager.Blinking(collider.transform.root.GetComponentsInChildren<SpriteRenderer>()[0].transform.gameObject);
+                    //_reactionManager.Knockback(collider.transform.root.gameObject, this.gameObject);
+                    //collider.transform.root.gameObject.GetComponent<Health>().TakeDomage();
                 }
             }
         }

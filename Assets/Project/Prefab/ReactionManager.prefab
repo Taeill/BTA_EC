@@ -45,3 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _blinkMat: {fileID: 2100000, guid: 408e003b034304337908dd5a99d3b84c, type: 3}
+  _basicCharacterMat: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
