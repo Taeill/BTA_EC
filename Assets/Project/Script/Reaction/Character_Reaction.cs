@@ -37,9 +37,9 @@ public class Character_Reaction : MonoBehaviour
     {
         for (int i = 0; i < 2; i++)
         {
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSecondsRealtime(0.1f);
             currentSprite.material = _blinkMat;
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSecondsRealtime(0.1f);
             currentSprite.material = _basicCharacterMat;
         }
 
