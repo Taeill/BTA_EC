@@ -90,7 +90,7 @@ public class PlayerDomage : MonoBehaviour
                 {
                     Debug.Log("Touché!");
 
-                    h.TakeDomage();
+                    h.TakeDomage(1);
                     _reactionManager.Blinking(collider.transform.root.GetComponentsInChildren<SpriteRenderer>()[0].transform.gameObject);
                     _reactionManager.HitKnockback(collider.transform.root.gameObject, this.gameObject);
                 }

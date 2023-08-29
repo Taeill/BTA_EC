@@ -24,7 +24,7 @@ public class Health : MonoBehaviour
         if (_currentHealth <= 0) return true;
         else return false;
     }
-    public void TakeDomage()
+    public void TakeDomage(int count)
 
     {
         if (gameObject.CompareTag("Player"))
