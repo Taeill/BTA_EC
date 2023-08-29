@@ -14,10 +14,11 @@ public class Health : MonoBehaviour
     private void Awake()
     {
         _currentHealth = _hpMax;
+
     }
     // Start is called before the first frame update
 
-    
+
     public bool IsDead()
     {
         if (_currentHealth <= 0) return true;
@@ -33,23 +34,26 @@ public class Health : MonoBehaviour
             {
                 _currentHealth--;
                 GameManager.instance.SuppLife(1);
+
             }
         }
-        else if(IsDead()) 
+        else if (IsDead())
         {
             Debug.Log("Destroy");
         }
-        if(gameObject.CompareTag("Enemi"))
+        if (gameObject.CompareTag("Enemi"))
         {
-            if( _currentHealth >0) 
+            if (_currentHealth > 0)
             {
-            _currentHealth--;
+                _currentHealth--;
+                
             }
             else if (IsDead())
             {
-           Destroy(gameObject);
+                Destroy(gameObject);
+                GameManager.instance.AddScore(10);
             }
         }
     }
-    
+
 }
