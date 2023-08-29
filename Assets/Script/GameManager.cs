@@ -14,7 +14,8 @@ public class GameManager : MonoBehaviour
 
         get; private set;
     }
-    
+    public int Score { get => _score; }
+
     [SerializeField] int _lifePlayer = 3;
 
 
@@ -29,7 +30,7 @@ public class GameManager : MonoBehaviour
     {
         _lifePlayer -= count;
         _textPlayerLife.text = _lifePlayer.ToString();
-      
+
     }
     internal void AddScore(int count)
     {
@@ -37,7 +38,12 @@ public class GameManager : MonoBehaviour
         //transformer int en string 
         _textScore.text = _score.ToString();
 
+    }
 
+    public void SuppScore()
+    {
+        _score = 0;
+        _textScore.text = _score.ToString();
 
     }
 }
