@@ -15,6 +15,11 @@ public class Enemy_Movement : MonoBehaviour
     private Vector3 _currentGoal;
     private Vector2 _startPos;
 
+    bool _stun = false;
+
+    public bool Stun { get => _stun; set => _stun = value; }
+
+
 
     //Constructor
     Vector2 _enemyVelocity
@@ -36,6 +41,7 @@ public class Enemy_Movement : MonoBehaviour
         }
     }
 
+    
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -61,35 +67,48 @@ public class Enemy_Movement : MonoBehaviour
 
     private void Update()
     {
-        if (_playerInRange) // Chase And Fight Behavior
+        if (!Stun)
         {
-            
+            if (_playerInRange) // Chase And Fight Behavior
+            {
 
-            if (Vector3.Distance(transform.position, PlayerMovement.Instance.transform.position) <= 1)
-            {
-                _Animator.SetTrigger("Attack");
-                _enemyVelocity = Vector3.zero;
+
+                if (Vector3.Distance(transform.position, PlayerMovement.Instance.transform.position) <= 1)
+                {
+                    int randomInt = (int) Random.Range(0, 10);
+                    switch (randomInt)
+                    {
+                        case 1:
+                            _Animator.SetTrigger("Attack");
+                            _enemyVelocity = Vector3.zero;
+                            break;
+                        
+                    }
+                    
+                }
+                else
+                {
+                    _enemyVelocity = (new Vector3(PlayerMovement.Instance.transform.position.x, PlayerMovement.Instance.transform.position.y, 0) - transform.position).normalized;
+                }
             }
-            else
+            else if (!_playerInRange) //Idle Routine
             {
-                _enemyVelocity = (new Vector3(PlayerMovement.Instance.transform.position.x, PlayerMovement.Instance.transform.position.y, 0) - transform.position).normalized;
+                if (_currentGoalDone && _currentWaitDone)
+                {
+                    _currentGoalDone = false;
+                    _currentWaitDone = false;
+                    GoTo(FindLocation());
+                }
+                if (Vector3.Distance(transform.position, _currentGoal) <= 1 && !_currentGoalDone)
+                {
+                    _enemyVelocity = Vector3.zero;
+                    StartCoroutine(RandomWaitBetweenWalk());
+                    _currentGoalDone = true;
+                }
             }
+
         }
-        else if (!_playerInRange) //Idle Routine
-        {
-            if (_currentGoalDone && _currentWaitDone)
-            {
-                _currentGoalDone = false;
-                _currentWaitDone = false;
-                GoTo(FindLocation()); 
-            }
-            if (Vector3.Distance(transform.position, _currentGoal) <= 1 && !_currentGoalDone)
-            {
-                _enemyVelocity = Vector3.zero;
-                StartCoroutine(RandomWaitBetweenWalk());
-                _currentGoalDone = true;
-            }
-        }
+        
         
     }
     
