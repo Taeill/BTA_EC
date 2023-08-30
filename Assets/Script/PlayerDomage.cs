@@ -17,6 +17,8 @@ public class PlayerDomage : MonoBehaviour
 
     [SerializeField] Combo _combo;
 
+    [SerializeField] AnimationClip[] _animAttack;
+
     //[SerializeField] float _nextPunchTime=0f;
 
 
@@ -38,7 +40,15 @@ public class PlayerDomage : MonoBehaviour
         {
             case InputActionPhase.Started:
                 _inputPunch = true;
-                
+                //Increment Combo Index When Attacking While Already Attacking
+                foreach (var item in _animAttack)
+                {
+                    if (_animator.GetCurrentAnimatorClipInfo(0)[0].clip == item)
+                    {
+                        _combo.AddComboIndex();
+                    }
+                }
+
                 break;
             case InputActionPhase.Canceled:
                 _inputPunch = false;
@@ -85,7 +95,7 @@ public class PlayerDomage : MonoBehaviour
     {
         if (CheckCollider().Count > 0)
         {
-            foreach (var collider in _collidingObject)
+            foreach (var collider in _collidingObject.ToArray())
             {
                 var h = collider.attachedRigidbody.GetComponent<Health>();
                 if (h != null)

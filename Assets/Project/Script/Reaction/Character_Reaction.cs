@@ -14,6 +14,7 @@ public class Character_Reaction : MonoBehaviour
         target.transform.root.gameObject.GetComponent<Health>().TakeDomage(1);
         Blinking(target.transform.root.GetComponentsInChildren<SpriteRenderer>()[0].transform.gameObject);
     }
+
     public void HitKnockback(GameObject target, GameObject sender)
     {
         target.transform.root.GetComponentInChildren<Animator>().SetTrigger("Knockbacked");
@@ -37,22 +38,25 @@ public class Character_Reaction : MonoBehaviour
     {
         for (int i = 0; i < 2; i++)
         {
-            yield return new WaitForSecondsRealtime(0.1f);
+            yield return new WaitForSecondsRealtime(0.05f);
             currentSprite.material = _blinkMat;
-            yield return new WaitForSecondsRealtime(0.1f);
+            yield return new WaitForSecondsRealtime(0.05f);
             currentSprite.material = _basicCharacterMat;
         }
 
-        
+
     }
 
     IEnumerator Knockbacking(GameObject target, GameObject sender)
     {
-            Rigidbody2D currentRgbd = target.transform.root.GetComponent<Rigidbody2D>();
-            currentRgbd.bodyType = RigidbodyType2D.Dynamic;
-            currentRgbd.AddForce(new Vector2((target.transform.position.x - sender.transform.position.x), 0).normalized * 300);
-            yield return new WaitForSeconds(0.1f);
-            currentRgbd.bodyType = RigidbodyType2D.Kinematic;
-            currentRgbd.velocity = Vector2.zero;
-    }   
+        if (target.transform.root.GetComponentInChildren<Enemy_Movement>()!= null) target.transform.root.GetComponentInChildren<Enemy_Movement>().Stun = true;
+        Rigidbody2D currentRgbd = target.transform.root.GetComponent<Rigidbody2D>();
+        currentRgbd.bodyType = RigidbodyType2D.Dynamic;
+        currentRgbd.AddForce(new Vector2((target.transform.position.x - sender.transform.position.x), 0).normalized * 300);
+        yield return new WaitForSeconds(0.1f);
+        currentRgbd.bodyType = RigidbodyType2D.Kinematic;
+        currentRgbd.velocity = Vector2.zero;
+        yield return new WaitForSeconds(1f);
+        if (target.transform.root.GetComponentInChildren<Enemy_Movement>() != null) target.transform.root.GetComponentInChildren<Enemy_Movement>().Stun = false;
+    }
 }

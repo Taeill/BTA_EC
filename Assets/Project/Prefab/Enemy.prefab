@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyAttack: {fileID: 2580012797141953506}
-  _Combo: {fileID: 0}
+  _Combo: {fileID: 9136785357399867562}
 --- !u!1 &1844234884076542776
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,7 +232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be3a1d8181c3acb4da71a5318f89c535, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _roamingAreaSize: 8
+  _roamingAreaSize: 4
   _rgbd2d: {fileID: 4049683489732636343}
   _Animator: {fileID: 232261071875986742}
 --- !u!58 &5210968030598753240
@@ -5297,6 +5297,8 @@ MonoBehaviour:
   _reactionManager: {fileID: 0}
   _spriterender: {fileID: 3856164736624669786}
   _combo: {fileID: 9136785357399867562}
+  _anim: {fileID: 232261071875986742}
+  _animAttack: {fileID: 7400000, guid: ab722c5aaddfc614182fc3a9ca673ec8, type: 2}
   _particulesHit:
     m_PersistentCalls:
       m_Calls:
@@ -5437,7 +5439,7 @@ Transform:
   - {fileID: 6373668704430390504}
   - {fileID: 8642337305432869025}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &4049683489732636343
 Rigidbody2D:

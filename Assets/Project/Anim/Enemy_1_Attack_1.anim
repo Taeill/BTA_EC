@@ -83,17 +83,3 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.25
-    functionName: AnimComboAdd
-    data: 
-    objectReferenceParameter: {fileID: 9162002621694137143, guid: 942a8218f11a0ea44962c25272e2c0be, type: 3}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.5
-    functionName: AnimComboReset
-    data: 
-    objectReferenceParameter: {fileID: 9162002621694137143, guid: 942a8218f11a0ea44962c25272e2c0be, type: 3}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0

@@ -2,19 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy_AnimEvent : MonoBehaviour
+public class ComboPlayer : MonoBehaviour
 {
-    [SerializeField] EnemyAttack _enemyAttack;
     [SerializeField] Combo _Combo;
-    void AnimAttack()
-    {
-        Debug.Log("Attack");
-        _enemyAttack.Attack();
-    }
-      
     void AnimComboAdd()
     {
-        //_Combo.AddComboIndex();
+        _Combo.AddComboIndex();
     }
 
     void AnimComboReset()
@@ -24,7 +17,8 @@ public class Enemy_AnimEvent : MonoBehaviour
 
     IEnumerator ComboReset()
     {
-        yield return new WaitForSeconds(1);
+        Debug.Log("resetplayerCombo");
+        yield return new WaitForSeconds(0.4f);
         _Combo.ResetComboIndex();
     }
 }

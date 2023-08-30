@@ -25,18 +25,18 @@ public class GameManager : MonoBehaviour
     {
 
         instance = this;
-        _textPlayerLife.text = _lifePlayer.ToString();
+        if(_textPlayerLife!=null) _textPlayerLife.text = _lifePlayer.ToString();
         
     }
     private void Update()
     {
-       _SlyderUltimBar.value = _score;
+        if (_SlyderUltimBar != null) _SlyderUltimBar.value = _score;
     }
 
     internal void SuppLife(int count)
     {
         _lifePlayer -= count;
-        _textPlayerLife.text = _lifePlayer.ToString();
+        if (_textPlayerLife != null) _textPlayerLife.text = _lifePlayer.ToString();
 
     }
     internal void AddScore(int count)
