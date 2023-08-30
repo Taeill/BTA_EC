@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class PlayerDomage : MonoBehaviour
 {
     [SerializeField] bool _inputPunch = false;
+    [Header("Animation && Particules")]
     [SerializeField] Animator _animator;
-    [SerializeField] string _animationPunch;
-    [SerializeField] string _animationPunch2;
-    [SerializeField] string _animationPunch3;
+    [SerializeField] UnityEvent _particulesHit;
     [SerializeField] int _countPunch = 0;
     [SerializeField] Character_Reaction _reactionManager;
     List<Collider2D> _collidingObject = new List<Collider2D>();
@@ -91,7 +91,7 @@ public class PlayerDomage : MonoBehaviour
                 if (h != null)
                 {
                     Debug.Log("Touché!");
-
+                    _particulesHit.Invoke();
                     _combo.Comboing(collider.transform.gameObject, transform.gameObject);
                 }
             }

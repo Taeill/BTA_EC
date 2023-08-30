@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 using UnityEngine.SocialPlatforms.Impl;
@@ -13,9 +14,10 @@ public class Ultim : MonoBehaviour
     [SerializeField] LayerMask _middleMask;
     [SerializeField] Transform _middlePosition;
     [SerializeField] float _radius;
-    [Header("ANIMATOR")]
+    [Header("ANIMATOR & PARTICULES")]
     [SerializeField] Animator _animator;
     [SerializeField] string _UltimName;
+    [SerializeField] UnityEvent _particulesUltim;
 
 
     public void Ultime(InputAction.CallbackContext context)
@@ -28,10 +30,10 @@ public class Ultim : MonoBehaviour
                 if (_inputUltime == true && GameManager.instance.Score >= 50)
                 {
                     _animator.SetTrigger(_UltimName);
-                    Debug.Log("Ultim");
+                    StartCoroutine(UltimParticuleWait());
                     _inputUltime = false;
                     GameManager.instance.SuppScore();
-                    TableauRecastCircle();
+                    
                 }
                 break;
             case InputActionPhase.Canceled:
@@ -59,14 +61,22 @@ public class Ultim : MonoBehaviour
 
                 if (h != null)
                 {
-                    el.attachedRigidbody.GetComponent<Health>().TakeDomage(3);
+                    //_particulesUltim.Invoke();
+                    el.attachedRigidbody.GetComponent<Health>().TakeDomage(10);
                 }
 
 
             }
         }
     }
+    IEnumerator UltimParticuleWait()
+    {
 
+        yield return new WaitForSeconds(0.6f);
+        _particulesUltim.Invoke();
+        TableauRecastCircle();
+
+    }
     public void OnDrawGizmos()
     {
         Gizmos.color = Color.red;

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EnemyAttack : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class EnemyAttack : MonoBehaviour
     [SerializeField] Combo _combo;
 
     List <Collider2D> _collidingObject = new List <Collider2D>();
+    [SerializeField] UnityEvent _particulesHit;
+
 
     
     
@@ -21,6 +24,7 @@ public class EnemyAttack : MonoBehaviour
             {
                 if (collider.transform.root.GetComponent<PlayerMovement>() != null)
                 {
+                    _particulesHit.Invoke();
                     //SendAttack
                     _combo.Comboing(collider.transform.gameObject,transform.gameObject);
 
