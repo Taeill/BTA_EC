@@ -42,9 +42,9 @@ public class Health : MonoBehaviour
             if(IsDead()) 
             {
                 StartCoroutine(ParticulesDeathPlayer());
-              
+
                 Debug.Log("DEATH");
-                _particulesDeathPlayer.Invoke();
+                _animationDeathPlayer.SetTrigger("DeathPlayer");
 
 
             }
@@ -70,8 +70,10 @@ public class Health : MonoBehaviour
 
     IEnumerator ParticulesDeathPlayer()
     {
-        yield return new WaitForSeconds(0.5f);
-        _animationDeathPlayer.SetTrigger("DeathPlayer");
+
+        yield return new WaitForSeconds(1.5f);
+        _particulesDeathPlayer.Invoke();
+      
     }
 
 }
