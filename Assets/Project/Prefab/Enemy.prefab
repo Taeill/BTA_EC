@@ -151,6 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyAttack: {fileID: 2580012797141953506}
+  _Combo: {fileID: 0}
 --- !u!1 &1844234884076542776
 GameObject:
   m_ObjectHideFlags: 0
@@ -181,6 +182,7 @@ Transform:
   m_Children:
   - {fileID: 5631334599552266603}
   - {fileID: 394851806092292133}
+  - {fileID: 3893347612393527026}
   m_Father: {fileID: 6493028594919913516}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -267,6 +269,51 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1
+--- !u!1 &5034061903888021174
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3893347612393527026}
+  - component: {fileID: 9136785357399867562}
+  m_Layer: 0
+  m_Name: Combo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3893347612393527026
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5034061903888021174}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8642337305432869025}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9136785357399867562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5034061903888021174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec9f288184cc2b74f9ffd221749ac146, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _charReaction: {fileID: 0}
 --- !u!1 &5375693448654908916
 GameObject:
   m_ObjectHideFlags: 0
@@ -359,7 +406,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _reactionManager: {fileID: 0}
   _spriterender: {fileID: 3856164736624669786}
-  _combo: {fileID: 0}
+  _combo: {fileID: 9136785357399867562}
 --- !u!1 &9084447957250660141
 GameObject:
   m_ObjectHideFlags: 0
