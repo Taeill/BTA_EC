@@ -51,7 +51,7 @@ public class Ultim : MonoBehaviour
     private void TableauRecastCircle()
     {
         Collider2D[] allContact = Physics2D.OverlapCircleAll(_middlePosition.position, _radius, _middleMask);
-        Debug.Log(allContact.Length);
+        
         if (allContact.Length > 0)
         {
             foreach (Collider2D el in allContact)

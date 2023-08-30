@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Health : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class Health : MonoBehaviour
     [Header("Health")]
     [SerializeField] int _currentHealth = 3;
     [SerializeField] int _hpMax = 3;
+    [SerializeField] Animator _animationDeathPlayer;
+    [SerializeField] UnityEvent _particulesDeathPlayer;
 
 
     private void Awake()
@@ -36,6 +39,13 @@ public class Health : MonoBehaviour
                 GameManager.instance.SuppLife(1);
 
             }
+            if(IsDead()) 
+            {
+                _animationDeathPlayer.SetTrigger("DeathPlayer");
+                Debug.Log("DEATH");
+
+
+            }
         }
         else if (IsDead())
         {
@@ -56,4 +66,9 @@ public class Health : MonoBehaviour
         }
     }
 
+    //IEnumerator ParticulesDeathPlayer()
+    //{
+
+    //}
+   
 }
