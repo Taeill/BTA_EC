@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1b696d1e3a40b4ec4b43e008c790f446
+guid: 3771ff06206127f49a30886bd22c78ce
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 118_Assets_GROUND_POUND_0
+      name: 130_Assets_SHOCKWAVE_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 81
-        height: 55
+        width: 128
+        height: 91
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5f5579b5805c9bd4fb47fa184a2f171d
-      internalID: -1793267850
+      spriteID: 7ffb077c903d9e247a83ffbba8b69a82
+      internalID: 1195157139
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 118_Assets_GROUND_POUND_1
+      name: 130_Assets_SHOCKWAVE_1
       rect:
         serializedVersion: 2
-        x: 81
+        x: 128
         y: 0
-        width: 81
-        height: 55
+        width: 128
+        height: 91
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,20 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cf9158d30f61df24fb50a9e0ab49e90c
-      internalID: -762996691
+      spriteID: b4a0a82c091c9d048857924d31338e09
+      internalID: 46635276
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 118_Assets_GROUND_POUND_2
+      name: 130_Assets_SHOCKWAVE_2
       rect:
         serializedVersion: 2
-        x: 162
+        x: 256
         y: 0
-        width: 81
-        height: 55
+        width: 128
+        height: 91
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,20 +179,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5f61bdf764f53df42863cbcdff9f55a7
-      internalID: -609452598
+      spriteID: c18d955c8d5deed439bfb42311bca125
+      internalID: 481327834
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 118_Assets_GROUND_POUND_3
+      name: 130_Assets_SHOCKWAVE_3
       rect:
         serializedVersion: 2
-        x: 243
+        x: 384
         y: 0
-        width: 81
-        height: 55
+        width: 128
+        height: 91
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,20 +200,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7dbd38d8192f72f4eab2fda091b84b35
-      internalID: 1433366133
+      spriteID: 3fc3b1b627ff6fc43ade66fd6c312cab
+      internalID: 629870236
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 118_Assets_GROUND_POUND_4
+      name: 130_Assets_SHOCKWAVE_4
       rect:
         serializedVersion: 2
-        x: 324
+        x: 512
         y: 0
-        width: 81
-        height: 55
+        width: 128
+        height: 91
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -221,20 +221,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1bd8b2303b6606542ae056e61b6a5e3b
-      internalID: -1899011979
+      spriteID: b1cfd8bee06ce104da1a5c5f81c0fbff
+      internalID: 1439944424
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 118_Assets_GROUND_POUND_5
+      name: 130_Assets_SHOCKWAVE_5
       rect:
         serializedVersion: 2
-        x: 405
+        x: 640
         y: 0
-        width: 81
-        height: 55
+        width: 128
+        height: 91
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -242,50 +242,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bac57acfc5cbefc43b6b5da64c3b530d
-      internalID: -56423088
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 118_Assets_GROUND_POUND_6
-      rect:
-        serializedVersion: 2
-        x: 486
-        y: 0
-        width: 81
-        height: 55
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0ebe824c0fcb3a54fab7200be9845fd0
-      internalID: -1864846867
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 118_Assets_GROUND_POUND_7
-      rect:
-        serializedVersion: 2
-        x: 567
-        y: 0
-        width: 81
-        height: 55
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3b20b5c84d942a24e95e35701c306e88
-      internalID: 2040555620
+      spriteID: 604db88d867cff1448d56db455fa89cc
+      internalID: -265142729
       vertices: []
       indices: 
       edges: []
@@ -301,14 +259,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      118_Assets_GROUND_POUND_0: -1793267850
-      118_Assets_GROUND_POUND_1: -762996691
-      118_Assets_GROUND_POUND_2: -609452598
-      118_Assets_GROUND_POUND_3: 1433366133
-      118_Assets_GROUND_POUND_4: -1899011979
-      118_Assets_GROUND_POUND_5: -56423088
-      118_Assets_GROUND_POUND_6: -1864846867
-      118_Assets_GROUND_POUND_7: 2040555620
+      130_Assets_SHOCKWAVE_0: 1195157139
+      130_Assets_SHOCKWAVE_1: 46635276
+      130_Assets_SHOCKWAVE_2: 481327834
+      130_Assets_SHOCKWAVE_3: 629870236
+      130_Assets_SHOCKWAVE_4: 1439944424
+      130_Assets_SHOCKWAVE_5: -265142729
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
