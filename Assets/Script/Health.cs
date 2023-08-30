@@ -41,8 +41,10 @@ public class Health : MonoBehaviour
             }
             if(IsDead()) 
             {
-                _animationDeathPlayer.SetTrigger("DeathPlayer");
+                StartCoroutine(ParticulesDeathPlayer());
+              
                 Debug.Log("DEATH");
+                _particulesDeathPlayer.Invoke();
 
 
             }
@@ -66,9 +68,10 @@ public class Health : MonoBehaviour
         }
     }
 
-    //IEnumerator ParticulesDeathPlayer()
-    //{
+    IEnumerator ParticulesDeathPlayer()
+    {
+        yield return new WaitForSeconds(0.5f);
+        _animationDeathPlayer.SetTrigger("DeathPlayer");
+    }
 
-    //}
-   
 }

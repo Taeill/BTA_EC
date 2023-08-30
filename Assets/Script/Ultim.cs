@@ -75,7 +75,7 @@ public class Ultim : MonoBehaviour
         yield return new WaitForSeconds(0.6f);
         _particulesUltim.Invoke();
         TableauRecastCircle();
-        yield return new WaitForSeconds(0.5f);
+       
 
 
     }
