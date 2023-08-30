@@ -59,7 +59,7 @@ public class Ultim : MonoBehaviour
 
                 if (h != null)
                 {
-                    el.attachedRigidbody.GetComponent<Health>().TakeDomage(3);
+                    el.attachedRigidbody.GetComponent<Health>().TakeDomage(10);
                 }
 
 
