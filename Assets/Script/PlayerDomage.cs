@@ -8,9 +8,6 @@ public class PlayerDomage : MonoBehaviour
 {
     [SerializeField] bool _inputPunch = false;
     [SerializeField] Animator _animator;
-    [SerializeField] string _animationPunch;
-    [SerializeField] string _animationPunch2;
-    [SerializeField] string _animationPunch3;
     [SerializeField] int _countPunch = 0;
     [SerializeField] Character_Reaction _reactionManager;
     List<Collider2D> _collidingObject = new List<Collider2D>();
