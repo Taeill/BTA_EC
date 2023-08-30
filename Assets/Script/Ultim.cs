@@ -13,9 +13,11 @@ public class Ultim : MonoBehaviour
     [SerializeField] LayerMask _middleMask;
     [SerializeField] Transform _middlePosition;
     [SerializeField] float _radius;
+    [Header("ANIMATOR")]
+    [SerializeField] Animator _animator;
+    [SerializeField] string _UltimName;
 
 
-   
     public void Ultime(InputAction.CallbackContext context)
     {
         switch (context.phase)
@@ -25,6 +27,7 @@ public class Ultim : MonoBehaviour
 
                 if (_inputUltime == true && GameManager.instance.Score >= 50)
                 {
+                    _animator.SetTrigger(_UltimName);
                     Debug.Log("Ultim");
                     _inputUltime = false;
                     GameManager.instance.SuppScore();
