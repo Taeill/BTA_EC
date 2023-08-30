@@ -8,9 +8,14 @@ public class PlayerDomage : MonoBehaviour
 {
     [SerializeField] bool _inputPunch = false;
     [SerializeField] Animator _animator;
+    [SerializeField] string _animationPunch;
+    [SerializeField] string _animationPunch2;
+    [SerializeField] string _animationPunch3;
     [SerializeField] int _countPunch = 0;
     [SerializeField] Character_Reaction _reactionManager;
     List<Collider2D> _collidingObject = new List<Collider2D>();
+
+    [SerializeField] Combo _combo;
 
     //[SerializeField] float _nextPunchTime=0f;
 
@@ -87,9 +92,7 @@ public class PlayerDomage : MonoBehaviour
                 {
                     Debug.Log("Touché!");
 
-                    h.TakeDomage(1);
-                    _reactionManager.Blinking(collider.transform.root.GetComponentsInChildren<SpriteRenderer>()[0].transform.gameObject);
-                    _reactionManager.HitKnockback(collider.transform.root.gameObject, this.gameObject);
+                    _combo.Comboing(collider.transform.gameObject, transform.gameObject);
                 }
             }
         }
