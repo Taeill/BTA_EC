@@ -171,7 +171,7 @@ MonoBehaviour:
   _inputUltime: 0
   _middleMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 256
   _middlePosition: {fileID: 8844875200796917538}
   _radius: 2
   _animator: {fileID: 6431427534324078488}

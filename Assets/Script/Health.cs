@@ -45,10 +45,10 @@ public class Health : MonoBehaviour
         {
             if (_currentHealth > 0)
             {
-                _currentHealth--;
+                _currentHealth-=count;
                 
             }
-            else if (IsDead())
+            if (IsDead())
             {
                 Destroy(gameObject);
                 GameManager.instance.AddScore(10);

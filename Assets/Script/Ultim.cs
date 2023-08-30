@@ -29,11 +29,11 @@ public class Ultim : MonoBehaviour
 
                 if (_inputUltime == true && GameManager.instance.Score >= 50)
                 {
-                    _animator.SetTrigger(_UltimName);
+                   
                     StartCoroutine(UltimParticuleWait());
                     _inputUltime = false;
                     GameManager.instance.SuppScore();
-                    
+                     _animator.SetTrigger(_UltimName);
                 }
                 break;
             case InputActionPhase.Canceled:
@@ -51,18 +51,18 @@ public class Ultim : MonoBehaviour
     private void TableauRecastCircle()
     {
         Collider2D[] allContact = Physics2D.OverlapCircleAll(_middlePosition.position, _radius, _middleMask);
-
+        Debug.Log(allContact.Length);
         if (allContact.Length > 0)
         {
             foreach (Collider2D el in allContact)
             {
 
-                var h = el.attachedRigidbody.GetComponent<Health>();
+                Health h = el.attachedRigidbody.GetComponent<Health>();
 
                 if (h != null)
                 {
                     //_particulesUltim.Invoke();
-                    el.attachedRigidbody.GetComponent<Health>().TakeDomage(10);
+                    h.TakeDomage(10);
                 }
 
 
@@ -75,6 +75,8 @@ public class Ultim : MonoBehaviour
         yield return new WaitForSeconds(0.6f);
         _particulesUltim.Invoke();
         TableauRecastCircle();
+        yield return new WaitForSeconds(0.5f);
+
 
     }
     public void OnDrawGizmos()
