@@ -173,6 +173,51 @@ MonoBehaviour:
   _radius: 2
   _animator: {fileID: 0}
   _UltimName: Ultim
+--- !u!1 &4852718463231526515
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 213472881010414627}
+  - component: {fileID: 3819425379769208268}
+  m_Layer: 0
+  m_Name: combo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &213472881010414627
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4852718463231526515}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9053878297732830881}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3819425379769208268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4852718463231526515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec9f288184cc2b74f9ffd221749ac146, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _charReaction: {fileID: 0}
 --- !u!1 &5834644992504985108
 GameObject:
   m_ObjectHideFlags: 0
@@ -301,6 +346,7 @@ MonoBehaviour:
   _animationPunch3: Punch3
   _countPunch: 0
   _reactionManager: {fileID: 0}
+  _combo: {fileID: 0}
 --- !u!1 &7861885181619177130
 GameObject:
   m_ObjectHideFlags: 0
@@ -330,6 +376,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6837986330491413493}
+  - {fileID: 213472881010414627}
   m_Father: {fileID: 291240826587342633}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
