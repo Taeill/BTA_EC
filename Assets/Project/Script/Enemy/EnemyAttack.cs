@@ -10,6 +10,9 @@ public class EnemyAttack : MonoBehaviour
 
     [SerializeField] Combo _combo;
 
+    [SerializeField] Animator _anim;
+    [SerializeField] AnimationClip _animAttack;
+
     List <Collider2D> _collidingObject = new List <Collider2D>();
     [SerializeField] UnityEvent _particulesHit;
 
@@ -18,6 +21,13 @@ public class EnemyAttack : MonoBehaviour
     
     public void Attack()
     {
+        //Increment Combo Index When Attacking While Already Attacking
+        if (_anim.GetCurrentAnimatorClipInfo(0)[0].clip == _animAttack)
+        {  
+            _combo.AddComboIndex();
+        }
+
+
         if (CheckCollider().Count>0)
         {
             foreach (var collider in _collidingObject)

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6431427534324078488}
   - component: {fileID: 4446396713324329353}
   - component: {fileID: 6177656273848462980}
+  - component: {fileID: 2259298063740025252}
   m_Layer: 0
   m_Name: Graphics
   m_TagString: Untagged
@@ -123,6 +124,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerDomage: {fileID: 6674002453556878925}
+--- !u!114 &2259298063740025252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1800631622597086809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a1bfb2d5aea6054ba454f29d812b17c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Combo: {fileID: 3819425379769208268}
 --- !u!1 &3090234514495049931
 GameObject:
   m_ObjectHideFlags: 0
@@ -173,7 +187,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   _middlePosition: {fileID: 8844875200796917538}
-  _radius: 2
+  _radius: 5e+9
   _animator: {fileID: 6431427534324078488}
   _UltimName: Ultim
   _particulesUltim:
@@ -10109,7 +10123,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -10171,6 +10185,10 @@ MonoBehaviour:
   _countPunch: 0
   _reactionManager: {fileID: 0}
   _combo: {fileID: 3819425379769208268}
+  _animAttack:
+  - {fileID: 7400000, guid: ec1eb2cbc6dfbba478c27d717012ec1b, type: 2}
+  - {fileID: 7400000, guid: 7764323d6a716b4498d7f9652dfd6bfb, type: 2}
+  - {fileID: 7400000, guid: bf9c32df58033754789a2d5a8b775c92, type: 2}
 --- !u!1 &7861885181619177130
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,7 +14,7 @@ public class Enemy_AnimEvent : MonoBehaviour
       
     void AnimComboAdd()
     {
-        _Combo.AddComboIndex();
+        //_Combo.AddComboIndex();
     }
 
     void AnimComboReset()

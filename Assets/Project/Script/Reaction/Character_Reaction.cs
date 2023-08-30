@@ -49,7 +49,6 @@ public class Character_Reaction : MonoBehaviour
 
     IEnumerator Knockbacking(GameObject target, GameObject sender)
     {
-        Debug.Log("KnockBack");
         if (target.transform.root.GetComponentInChildren<Enemy_Movement>()!= null) target.transform.root.GetComponentInChildren<Enemy_Movement>().Stun = true;
         Rigidbody2D currentRgbd = target.transform.root.GetComponent<Rigidbody2D>();
         currentRgbd.bodyType = RigidbodyType2D.Dynamic;
