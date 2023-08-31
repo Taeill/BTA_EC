@@ -201,7 +201,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   _middlePosition: {fileID: 8844875200796917538}
-  _radius: 5e+9
+  _radius: 2.19
   _animator: {fileID: 6431427534324078488}
   _UltimName: Ultim
   _particulesUltim:
