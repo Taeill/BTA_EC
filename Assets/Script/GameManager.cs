@@ -33,16 +33,15 @@ public class GameManager : MonoBehaviour
         if (_SlyderUltimBar != null) _SlyderUltimBar.value = _score;
     }
 
-    internal void SuppLife(int count)
+    internal void SuppLife(int newValue)
     {
-        _lifePlayer -= count;
+        _lifePlayer = newValue;
         if (_textPlayerLife != null) _textPlayerLife.text = _lifePlayer.ToString();
 
     }
     internal void AddScore(int count)
     {
-        _score += count;
-        //transformer int en string 
+        _score += count; 
         _textScore.text = _score.ToString();
         _SlyderUltimBar.value = _score;
 

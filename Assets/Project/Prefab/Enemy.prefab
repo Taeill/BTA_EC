@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 3856164736624669786}
   - component: {fileID: 232261071875986742}
   - component: {fileID: 2313438393626557514}
+  - component: {fileID: 4571044104736283222}
   m_Layer: 0
   m_Name: Graphics
   m_TagString: Untagged
@@ -153,6 +154,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyAttack: {fileID: 2580012797141953506}
   _Combo: {fileID: 9136785357399867562}
+--- !u!114 &4571044104736283222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1116259109986841497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7161f4ad315aeb8439df7b50014bc23c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _death: {fileID: 8584542624368760885}
 --- !u!1 &1844234884076542776
 GameObject:
   m_ObjectHideFlags: 0
@@ -5480,10 +5494,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47ecef30812894545907fe7cea1a5add, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_damagingTag: 
   _currentHealth: 100
   _hpMax: 100
-  _animationDeathPlayer: {fileID: 0}
+  _animator: {fileID: 232261071875986742}
   _particulesDeathPlayer:
     m_PersistentCalls:
       m_Calls: []
