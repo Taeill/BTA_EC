@@ -75,12 +75,14 @@ public class Enemy_Movement : MonoBehaviour
 
                 if (Vector3.Distance(transform.position, PlayerMovement.Instance.transform.position) <= 1)
                 {
-                    int randomInt = (int) Random.Range(0, 10);
+                    _enemyVelocity = Vector3.zero;
+
+                    int randomInt = (int) Random.Range(0, 200);
                     switch (randomInt)
                     {
                         case 1:
                             _Animator.SetTrigger("Attack");
-                            _enemyVelocity = Vector3.zero;
+                            
                             break;
                         
                     }

@@ -10140,7 +10140,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.24409515, y: -0.039639354}
+  m_Offset: {x: 0.1603462, y: -0.17987022}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -10151,7 +10151,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.35325205, y: 0.411668}
+  m_Size: {x: 0.18575415, y: 0.13120627}
   m_EdgeRadius: 0
 --- !u!114 &6674002453556878925
 MonoBehaviour:
@@ -15147,7 +15147,7 @@ Transform:
   - {fileID: 5017763835564539316}
   - {fileID: 9053878297732830881}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2175762013202610362
 MonoBehaviour:
@@ -15207,6 +15207,10 @@ MonoBehaviour:
   m_damagingTag: 
   _currentHealth: 3
   _hpMax: 3
+  _animationDeathPlayer: {fileID: 0}
+  _particulesDeathPlayer:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &9205263017354771612
 GameObject:
   m_ObjectHideFlags: 0
@@ -15272,7 +15276,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0026478544, y: -0.16937086}
+  m_Offset: {x: -0.0026478544, y: -0.19079502}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -15283,5 +15287,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.16009496, y: 0.12711167}
+  m_Size: {x: 0.16009496, y: 0.084263355}
   m_EdgeRadius: 0

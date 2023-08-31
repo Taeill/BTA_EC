@@ -17,7 +17,6 @@ public class ComboPlayer : MonoBehaviour
 
     IEnumerator ComboReset()
     {
-        Debug.Log("resetplayerCombo");
         yield return new WaitForSeconds(0.4f);
         _Combo.ResetComboIndex();
     }
