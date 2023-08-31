@@ -33,9 +33,9 @@ public class GameManager : MonoBehaviour
         if (_SlyderUltimBar != null) _SlyderUltimBar.value = _score;
     }
 
-    internal void SuppLife(int count)
+    internal void SuppLife(int newValue)
     {
-        _lifePlayer -= count;
+        _lifePlayer = newValue;
         if (_textPlayerLife != null) _textPlayerLife.text = _lifePlayer.ToString();
 
     }

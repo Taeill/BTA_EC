@@ -10,9 +10,13 @@ public class Health : MonoBehaviour
     [Header("Health")]
     [SerializeField] int _currentHealth = 3;
     [SerializeField] int _hpMax = 3;
-    [SerializeField] Animator _animationDeathPlayer;
-    [SerializeField] UnityEvent _particulesDeathPlayer;
+    [Header("ANIMATION && PARTICULES")]
+    [SerializeField] Animator _animator;
+    [SerializeField] UnityEvent _onDeath;
 
+    bool IsEnemy() => gameObject.CompareTag("Enemi");
+    bool IsPlayer() => gameObject.CompareTag("Player");
+    public bool IsDead() => _currentHealth <= 0;
 
     private void Awake()
     {
@@ -21,59 +25,42 @@ public class Health : MonoBehaviour
     }
     // Start is called before the first frame update
 
-
-    public bool IsDead()
-    {
-        if (_currentHealth <= 0) return true;
-        else return false;
-    }
+    
     public void TakeDomage(int count)
-
     {
-        if (gameObject.CompareTag("Player"))
+        // Guard
+        if (count < 0) { Debug.LogError(""); return; }
+
+        // Update Health
+        if (IsEnemy() || IsPlayer())
         {
-
-            if (_currentHealth > 0)
-            {
-                _currentHealth--;
-                GameManager.instance.SuppLife(1);
-
-            }
-            if(IsDead()) 
-            {
-                StartCoroutine(ParticulesDeathPlayer());
-
-                Debug.Log("DEATH");
-                _animationDeathPlayer.SetTrigger("DeathPlayer");
-
-
-            }
+            _currentHealth = Mathf.Max(0, _currentHealth-count);
         }
-        else if (IsDead())
+        // PLayer update slider
+        if (IsPlayer())
         {
-            Debug.Log("Destroy");
+            GameManager.instance.SuppLife(_currentHealth);
         }
-        if (gameObject.CompareTag("Enemi"))
+
+        // Death
+        if (IsDead())
         {
-            if (_currentHealth > 0)
+            StartCoroutine(DeathRoutine());
+            //Destroy(gameObject);
+            //Debug.Log("DeathEnemy");
+            if (IsEnemy())
             {
-                _currentHealth-=count;
-                
-            }
-            if (IsDead())
-            {
-                Destroy(gameObject);
                 GameManager.instance.AddScore(10);
             }
         }
     }
 
-    IEnumerator ParticulesDeathPlayer()
+    IEnumerator DeathRoutine()
     {
-
+        _animator.SetTrigger("Death");
         yield return new WaitForSeconds(1.5f);
-        _particulesDeathPlayer.Invoke();
-      
+        _onDeath.Invoke();
+        yield return new WaitForSeconds(1.5f);
+        Destroy(gameObject);
     }
-
 }
