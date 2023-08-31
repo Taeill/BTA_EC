@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4446396713324329353}
   - component: {fileID: 6177656273848462980}
   - component: {fileID: 2259298063740025252}
+  - component: {fileID: 8337338923583821114}
   m_Layer: 0
   m_Name: Graphics
   m_TagString: Untagged
@@ -137,6 +138,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Combo: {fileID: 3819425379769208268}
+--- !u!114 &8337338923583821114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1800631622597086809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7161f4ad315aeb8439df7b50014bc23c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _death: {fileID: 8018589136245392315}
 --- !u!1 &3090234514495049931
 GameObject:
   m_ObjectHideFlags: 0
@@ -15204,13 +15218,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47ecef30812894545907fe7cea1a5add, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_damagingTag: 
   _currentHealth: 3
   _hpMax: 3
   _animator: {fileID: 6431427534324078488}
-  _onDeath:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &9205263017354771612
 GameObject:
   m_ObjectHideFlags: 0

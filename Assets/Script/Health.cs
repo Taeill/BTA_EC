@@ -6,13 +6,13 @@ using UnityEngine.Events;
 
 public class Health : MonoBehaviour
 {
-    public string m_damagingTag = "";
+    
     [Header("Health")]
     [SerializeField] int _currentHealth = 3;
     [SerializeField] int _hpMax = 3;
     [Header("ANIMATION && PARTICULES")]
     [SerializeField] Animator _animator;
-    [SerializeField] UnityEvent _onDeath;
+    //[SerializeField] UnityEvent _onDeath;
 
     bool IsEnemy() => gameObject.CompareTag("Enemi");
     bool IsPlayer() => gameObject.CompareTag("Player");
@@ -45,7 +45,10 @@ public class Health : MonoBehaviour
         // Death
         if (IsDead())
         {
-            StartCoroutine(DeathRoutine());
+            Debug.Log("dfdf");
+            _animator.SetTrigger("Death");
+
+            //StartCoroutine(DeathRoutine());
             //Destroy(gameObject);
             //Debug.Log("DeathEnemy");
             if (IsEnemy())
@@ -55,12 +58,24 @@ public class Health : MonoBehaviour
         }
     }
 
-    IEnumerator DeathRoutine()
-    {
-        _animator.SetTrigger("Death");
-        yield return new WaitForSeconds(1.5f);
-        _onDeath.Invoke();
-        yield return new WaitForSeconds(1.5f);
-        Destroy(gameObject);
-    }
+    //IEnumerator DeathRoutine()
+    //{
+    //    if(IsPlayer())
+    //    {
+    //    _animator.SetTrigger("Death");
+    //    yield return new WaitForSeconds(1.5f);
+    //    _onDeath.Invoke();
+    //    yield return new WaitForSeconds(1.5f);
+    //    Destroy(gameObject);
+
+    //    }
+    //    if (IsEnemy())
+    //    {
+    //        _animator.SetTrigger("Death");
+    //        yield return new WaitForSeconds(2f);
+    //        _onDeath.Invoke();
+    //        //    yield return new WaitForSeconds(10f);
+    //        //    Destroy(gameObject);
+    //    }
+    //}
 }

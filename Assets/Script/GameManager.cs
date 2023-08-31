@@ -41,8 +41,7 @@ public class GameManager : MonoBehaviour
     }
     internal void AddScore(int count)
     {
-        _score += count;
-        //transformer int en string 
+        _score += count; 
         _textScore.text = _score.ToString();
         _SlyderUltimBar.value = _score;
 

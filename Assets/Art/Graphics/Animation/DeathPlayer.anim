@@ -82,8 +82,8 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0
-    functionName: Punching
+  - time: 0.5
+    functionName: DeathTime
     data: 
     objectReferenceParameter: {fileID: 8207404080157879888, guid: 5201ffd8955f3ae42b084440fa4d0751, type: 3}
     floatParameter: 0
