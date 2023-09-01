@@ -35,7 +35,7 @@ public class Health : MonoBehaviour
         if (count < 0) { Debug.LogError(""); return; }
 
         // Update Health
-        if (IsEnemy() || IsPlayer())
+        if (IsEnemy() || IsPlayer() || gameObject.CompareTag("Boss"))
         {
             _currentHealth = Mathf.Max(0, _currentHealth-count);
         }
