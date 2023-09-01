@@ -6,6 +6,8 @@ public class BossBehavior : MonoBehaviour
 {
     [SerializeField] GameObject _target;
     [SerializeField] Animator _animator;
+
+
     enum _bossStates
     {
         TargettingState,
@@ -22,7 +24,6 @@ public class BossBehavior : MonoBehaviour
 
     IEnumerator Routine()
     {
-        int nbTarget = 1;
 
         _state = _bossStates.IdleState;
         _animator.SetBool("MusicAttack", false);
@@ -31,19 +32,25 @@ public class BossBehavior : MonoBehaviour
 
         _state = _bossStates.TargettingState;
         _animator.SetBool("MusicAttack", true);
-        
 
-        for (int i = 0; i < nbTarget; i++)
-        {
-            Targetting();
-        }
+        StartCoroutine(Targetting());
+
         yield return new WaitForSeconds(5);
 
+        StartCoroutine(Routine());
+        
     }
 
-    void Targetting()
+    IEnumerator Targetting()
     {
         Instantiate(_target, transform.position, transform.rotation);
+        yield return new WaitForSeconds(2);
+
+        if (_state == _bossStates.TargettingState)
+        {
+            StartCoroutine(Targetting());
+        }
+        
     }
 
     void Idling()

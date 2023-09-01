@@ -7,16 +7,18 @@ public class Boss_ : MonoBehaviour
     [SerializeField] Material _blinkMat;
     [SerializeField] Material _basicMat;
 
+    [SerializeField] SpriteRenderer _sprite;
+
     [SerializeField] Rigidbody2D _rgbd2D;
     [SerializeField] float _speed = 1;
     float _birthtime;
     float _lifeSpan;
-    float _maxTime = 10;
+    float _maxTime = 5;
     float _percentTime;
     private void Start()
     {
         _birthtime = Time.realtimeSinceStartup;
-        _lifeSpan = _birthtime + Random.Range(5, _maxTime);
+        _lifeSpan =  Random.Range(2,10);
         StartCoroutine(TargetRoaming());
     }
 
@@ -28,7 +30,7 @@ public class Boss_ : MonoBehaviour
         {
             PlayerMovement.Instance.transform.root.GetComponent<Health>().TakeDomage(1);
         }
-        
+
     }
 
     private void Update()
@@ -39,29 +41,34 @@ public class Boss_ : MonoBehaviour
 
     IEnumerator TargetRoaming()
     {
-        if (Time.realtimeSinceStartup - _birthtime < _lifeSpan)
+        if (_percentTime >= 90)
+        {
+            StartCoroutine(Blink(_sprite));
+        }
+        if (_percentTime < 100)
         {
             GoTo();
-            yield return new WaitForSeconds(Random.Range(0.1f,0.5f));
+            yield return new WaitForSeconds(Random.Range(0.1f, 0.5f));
             StartCoroutine(TargetRoaming());
-
         }
         else
         {
+            StopCoroutine(Blink(_sprite));
             Shoot();
+            Destroy(this.transform.root.gameObject);
         }
-        
+
     }
 
     void GoTo()
     {
         Vector2 currentPos = transform.position;
-        _rgbd2D.velocity = ((FindLocation() - currentPos).normalized) * (_speed / (1 + _percentTime/100));
+        _rgbd2D.velocity = ((FindLocation() - currentPos).normalized) * (_speed / (1 + _percentTime / 100));
     }
 
     Vector2 FindLocation()
     {
-        
+
         Vector2 startPos = PlayerMovement.Instance.transform.position;
         Vector2 result;
         Debug.Log(_percentTime);
@@ -72,15 +79,11 @@ public class Boss_ : MonoBehaviour
 
     IEnumerator Blink(SpriteRenderer currentSprite)
     {
-        for (int i = 0; i < 2; i++)
-        {
-            yield return new WaitForSecondsRealtime(0.05f);
-            currentSprite.material = _blinkMat;
-            yield return new WaitForSecondsRealtime(0.05f);
-            currentSprite.material = _basicMat;
-        }
-
-
+        yield return new WaitForSecondsRealtime(0.05f);
+        currentSprite.material = _blinkMat;
+        yield return new WaitForSecondsRealtime(0.05f);
+        currentSprite.material = _basicMat;
+        StartCoroutine(Blink(_sprite));
     }
 
 
