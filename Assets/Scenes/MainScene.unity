@@ -333,10 +333,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6857316692302917289, guid: 942a8218f11a0ea44962c25272e2c0be, type: 3}
-      propertyPath: _speed
-      value: 1.6
-      objectReference: {fileID: 0}
     - target: {fileID: 9136785357399867562, guid: 942a8218f11a0ea44962c25272e2c0be, type: 3}
       propertyPath: _charReaction
       value: 
@@ -674,9 +670,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _textPlayerLife: {fileID: 0}
   _textScore: {fileID: 0}
-  _lifePlayer: 3
   _SlyderUltimBar: {fileID: 0}
   _score: 0
+  _lifePlayer: 3
+  _SlyderHealth: {fileID: 0}
 --- !u!4 &1369836445
 Transform:
   m_ObjectHideFlags: 0
