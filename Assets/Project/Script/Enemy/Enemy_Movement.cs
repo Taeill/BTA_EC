@@ -8,6 +8,7 @@ public class Enemy_Movement : MonoBehaviour
     [SerializeField] float _roamingAreaSize = 10;
     [SerializeField] Rigidbody2D _rgbd2d;
     [SerializeField] Animator _Animator;
+    [SerializeField] float _speed = 2;
 
     private bool _playerInRange = false;
     private bool _currentGoalDone = true;
@@ -90,7 +91,7 @@ public class Enemy_Movement : MonoBehaviour
                 }
                 else
                 {
-                    _enemyVelocity = (new Vector3(PlayerMovement.Instance.transform.position.x, PlayerMovement.Instance.transform.position.y, 0) - transform.position).normalized;
+                    _enemyVelocity = (new Vector3(PlayerMovement.Instance.transform.position.x, PlayerMovement.Instance.transform.position.y, 0) - transform.position).normalized * _speed;
                 }
             }
             else if (!_playerInRange) //Idle Routine
@@ -123,7 +124,7 @@ public class Enemy_Movement : MonoBehaviour
 
     void GoTo(Vector2 a)
     {
-        _enemyVelocity = (new Vector3 (a.x,a.y,0) - transform.position).normalized;
+        _enemyVelocity = (new Vector3 (a.x,a.y,0) - transform.position).normalized * _speed;
     }
 
     IEnumerator RandomWaitBetweenWalk()

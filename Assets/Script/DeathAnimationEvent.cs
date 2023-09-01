@@ -5,12 +5,12 @@ using UnityEngine.Events;
 
 public class DeathAnimationEvent : MonoBehaviour
 {
-    [SerializeField] Health _death;
+    [SerializeField] GameObject _objectToDestroy;
     
     public void DeathTime()
     {
         
-        Destroy(gameObject);
+        Destroy(_objectToDestroy);
       
     }
 

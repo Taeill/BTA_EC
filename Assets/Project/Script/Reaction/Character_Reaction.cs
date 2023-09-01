@@ -12,15 +12,23 @@ public class Character_Reaction : MonoBehaviour
     {
         target.transform.root.GetComponentInChildren<Animator>().SetTrigger("Hit");
         target.transform.root.gameObject.GetComponent<Health>().TakeDomage(1);
-        Blinking(target.transform.root.GetComponentsInChildren<SpriteRenderer>()[0].transform.gameObject);
+        if (target.transform.root. GetComponent<Health>() != null)
+        {
+            Blinking(target.transform.root.GetComponentsInChildren<SpriteRenderer>()[0].transform.gameObject);
+        }
+        
     }
 
     public void HitKnockback(GameObject target, GameObject sender)
     {
         target.transform.root.GetComponentInChildren<Animator>().SetTrigger("Knockbacked");
         target.transform.root.gameObject.GetComponent<Health>().TakeDomage(1);
-        StartCoroutine(Knockbacking(target, sender));
-        Blinking(target.transform.root.GetComponentsInChildren<SpriteRenderer>()[0].transform.gameObject);
+        if (target.transform.root.GetComponent<Health>() != null)
+        {
+            StartCoroutine(Knockbacking(target, sender));
+            Blinking(target.transform.root.GetComponentsInChildren<SpriteRenderer>()[0].transform.gameObject);
+        }
+        
     }
 
     public void Blinking(GameObject a)

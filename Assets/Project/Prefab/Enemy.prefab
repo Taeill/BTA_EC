@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7161f4ad315aeb8439df7b50014bc23c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _death: {fileID: 8584542624368760885}
+  _objectToDestroy: {fileID: 9162002621694137143}
 --- !u!1 &1844234884076542776
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,6 +249,7 @@ MonoBehaviour:
   _roamingAreaSize: 4
   _rgbd2d: {fileID: 4049683489732636343}
   _Animator: {fileID: 232261071875986742}
+  _speed: 2
 --- !u!58 &5210968030598753240
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -5266,7 +5267,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -5394,7 +5395,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.012533538, y: -0.1760562}
+  m_Offset: {x: 0.012533538, y: -0.16009793}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -5405,7 +5406,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.15671782, y: 0.09333955}
+  m_Size: {x: 0.15671782, y: 0.1252561}
   m_EdgeRadius: 0
 --- !u!114 &7113842841255499170
 MonoBehaviour:
@@ -5494,9 +5495,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47ecef30812894545907fe7cea1a5add, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentHealth: 100
-  _hpMax: 100
+  _currentHealth: 10
+  _hpMax: 10
   _animator: {fileID: 232261071875986742}
-  _particulesDeathPlayer:
-    m_PersistentCalls:
-      m_Calls: []
