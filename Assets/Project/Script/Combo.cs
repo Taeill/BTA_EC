@@ -23,8 +23,16 @@ public class Combo : MonoBehaviour
                 _charReaction.Hit(target, sender);
                 break;
             case 2:
-                _charReaction.HitKnockback(target, sender);
+                if (!target.gameObject.CompareTag("Boss"))
+                {
+                    _charReaction.HitKnockback(target, sender);     
+                }
+                else
+                {
+                    _charReaction.Hit(target, sender);
+                }
                 break;
+
         }
     }
 

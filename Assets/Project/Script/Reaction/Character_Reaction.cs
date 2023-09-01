@@ -67,4 +67,9 @@ public class Character_Reaction : MonoBehaviour
         yield return new WaitForSeconds(1f);
         if (target.transform.root.GetComponentInChildren<Enemy_Movement>() != null) target.transform.root.GetComponentInChildren<Enemy_Movement>().Stun = false;
     }
+
+    public void Knock(GameObject target, GameObject sender)
+    {
+        StartCoroutine(Knockbacking(target, sender));
+    }
 }

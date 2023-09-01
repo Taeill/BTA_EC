@@ -4,16 +4,19 @@ using UnityEngine;
 
 public class Boss_ : MonoBehaviour
 {
+    [SerializeField] Material _blinkMat;
+    [SerializeField] Material _basicMat;
+
     [SerializeField] Rigidbody2D _rgbd2D;
     [SerializeField] float _speed = 1;
     float _birthtime;
     float _lifeSpan;
-    float _maxTime = 20;
+    float _maxTime = 10;
     float _percentTime;
     private void Start()
     {
         _birthtime = Time.realtimeSinceStartup;
-        _lifeSpan = _birthtime + Random.Range(10, _maxTime);
+        _lifeSpan = _birthtime + Random.Range(5, _maxTime);
         StartCoroutine(TargetRoaming());
     }
 
@@ -65,6 +68,19 @@ public class Boss_ : MonoBehaviour
         result = startPos + (Random.insideUnitCircle / 2 * (100 - _percentTime) / 5);
 
         return result;
+    }
+
+    IEnumerator Blink(SpriteRenderer currentSprite)
+    {
+        for (int i = 0; i < 2; i++)
+        {
+            yield return new WaitForSecondsRealtime(0.05f);
+            currentSprite.material = _blinkMat;
+            yield return new WaitForSecondsRealtime(0.05f);
+            currentSprite.material = _basicMat;
+        }
+
+
     }
 
 
