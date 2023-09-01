@@ -6,12 +6,13 @@ using UnityEngine.Events;
 
 public class Health : MonoBehaviour
 {
-    
+
     [Header("Health")]
     [SerializeField] int _currentHealth = 3;
     [SerializeField] int _hpMax = 3;
     [Header("ANIMATION && PARTICULES")]
     [SerializeField] Animator _animator;
+    
     //[SerializeField] UnityEvent _onDeath;
 
     bool IsEnemy() => gameObject.CompareTag("Enemi");
@@ -25,7 +26,9 @@ public class Health : MonoBehaviour
     }
     // Start is called before the first frame update
 
-    
+    private void Start()
+    {
+    }
     public void TakeDomage(int count)
     {
         // Guard
