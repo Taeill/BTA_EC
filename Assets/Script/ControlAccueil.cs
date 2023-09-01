@@ -14,5 +14,8 @@ public class ControlAccueil : MonoBehaviour
     {
         Application.Quit();
     }
-
+    public void Menu(string _menuName)
+    {
+        SceneManager.LoadScene(_menuName);
+    }
 }
