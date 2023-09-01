@@ -98,6 +98,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 617cafa4f8eacfc42ac0107e7f740d8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _blinkMat: {fileID: 2100000, guid: 408e003b034304337908dd5a99d3b84c, type: 3}
+  _basicMat: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  _sprite: {fileID: 3272089994437929424}
   _rgbd2D: {fileID: 1134521536198487302}
   _speed: 10
 --- !u!50 &1134521536198487302

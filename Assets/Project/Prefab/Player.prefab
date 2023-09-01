@@ -15231,7 +15231,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5017763835564539316}
   - component: {fileID: 2782223200077998933}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Physics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
