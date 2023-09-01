@@ -1207,6 +1207,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Boss
       objectReference: {fileID: 0}
+    - target: {fileID: 5832235293123317200, guid: b3bac2198f063a94b889f83b0b3cc395, type: 3}
+      propertyPath: _hpMax
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5832235293123317200, guid: b3bac2198f063a94b889f83b0b3cc395, type: 3}
+      propertyPath: _currentHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7129474785619071845, guid: b3bac2198f063a94b889f83b0b3cc395, type: 3}
       propertyPath: m_TagString
       value: Boss

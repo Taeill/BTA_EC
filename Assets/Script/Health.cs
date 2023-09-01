@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
@@ -52,7 +53,7 @@ public class Health : MonoBehaviour
             
             _animator.SetTrigger("Death");
 
-            //StartCoroutine(DeathRoutine());
+            ;
             //Destroy(gameObject);
             //Debug.Log("DeathEnemy");
             if (IsEnemy())
@@ -61,10 +62,14 @@ public class Health : MonoBehaviour
             }
             if(IsBoss())
             {
-                _animator.SetTrigger("Win");
+                Debug.Log("BossMort");
+                PlayerMovement.Instance.transform.root.gameObject.GetComponentInChildren<Animator>().SetTrigger("Win");
+               //StartCoroutine(DeathRoutine())
+                //SceneManager.LoadScene("Win");
             }
         }
     }
+   
 
     //IEnumerator DeathRoutine()
     //{
