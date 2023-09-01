@@ -369,6 +369,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &760684166 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9069231670509056524, guid: b09a38f8a2980ba4196b94145cfba621, type: 3}
+  m_PrefabInstance: {fileID: 5897552943114238549}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &891497784
 GameObject:
   m_ObjectHideFlags: 0
@@ -400,9 +411,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _textPlayerLife: {fileID: 1137223721}
   _textScore: {fileID: 1634838795}
-  _lifePlayer: 3
   _SlyderUltimBar: {fileID: 1593257659}
   _score: 0
+  _lifePlayer: 5
+  _SlyderHealth: {fileID: 760684166}
 --- !u!4 &891497786
 Transform:
   m_ObjectHideFlags: 0
@@ -936,6 +948,10 @@ PrefabInstance:
       propertyPath: _reactionManager
       value: 
       objectReference: {fileID: 2115391964}
+    - target: {fileID: 8018589136245392315, guid: 5201ffd8955f3ae42b084440fa4d0751, type: 3}
+      propertyPath: _sprite.Array.size
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8207404080157879888, guid: 5201ffd8955f3ae42b084440fa4d0751, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1039,6 +1055,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3583300992115082159, guid: b09a38f8a2980ba4196b94145cfba621, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4019360954635616725, guid: b09a38f8a2980ba4196b94145cfba621, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6929370346171576778, guid: b09a38f8a2980ba4196b94145cfba621, type: 3}
