@@ -17,8 +17,9 @@ public class Health : MonoBehaviour
 
     bool IsEnemy() => gameObject.CompareTag("Enemi");
     bool IsPlayer() => gameObject.CompareTag("Player");
+    bool IsBoss() => gameObject.CompareTag("Boss");
     public bool IsDead() => _currentHealth <= 0;
-
+    
     private void Awake()
     {
         _currentHealth = _hpMax;
@@ -35,7 +36,7 @@ public class Health : MonoBehaviour
         if (count < 0) { Debug.LogError(""); return; }
 
         // Update Health
-        if (IsEnemy() || IsPlayer() || gameObject.CompareTag("Boss"))
+        if (IsEnemy() || IsPlayer() || IsBoss())
         {
             _currentHealth = Mathf.Max(0, _currentHealth-count);
         }
@@ -57,6 +58,10 @@ public class Health : MonoBehaviour
             if (IsEnemy())
             {
                 GameManager.instance.AddScore(10);
+            }
+            if(IsBoss())
+            {
+                _animator.SetTrigger("Win");
             }
         }
     }
