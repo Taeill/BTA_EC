@@ -3,21 +3,24 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
-    
+
     [Header("Health")]
     [SerializeField] int _currentHealth = 3;
     [SerializeField] int _hpMax = 3;
     [Header("ANIMATION && PARTICULES")]
     [SerializeField] Animator _animator;
+    
     //[SerializeField] UnityEvent _onDeath;
 
     bool IsEnemy() => gameObject.CompareTag("Enemi");
     bool IsPlayer() => gameObject.CompareTag("Player");
+    bool IsBoss() => gameObject.CompareTag("Boss");
     public bool IsDead() => _currentHealth <= 0;
-
+    
     private void Awake()
     {
         _currentHealth = _hpMax;
@@ -25,14 +28,16 @@ public class Health : MonoBehaviour
     }
     // Start is called before the first frame update
 
-    
+    private void Start()
+    {
+    }
     public void TakeDomage(int count)
     {
         // Guard
         if (count < 0) { Debug.LogError(""); return; }
 
         // Update Health
-        if (IsEnemy() || IsPlayer() || gameObject.CompareTag("Boss"))
+        if (IsEnemy() || IsPlayer() || IsBoss())
         {
             _currentHealth = Mathf.Max(0, _currentHealth-count);
         }
@@ -41,23 +46,30 @@ public class Health : MonoBehaviour
         {
             GameManager.instance.SuppLife(_currentHealth);
         }
-        
 
         // Death
         if (IsDead())
         {
-            Debug.Log("dfdf");
+            
             _animator.SetTrigger("Death");
 
-            //StartCoroutine(DeathRoutine());
+            ;
             //Destroy(gameObject);
             //Debug.Log("DeathEnemy");
             if (IsEnemy())
             {
                 GameManager.instance.AddScore(10);
             }
+            if(IsBoss())
+            {
+                Debug.Log("BossMort");
+                PlayerMovement.Instance.transform.root.gameObject.GetComponentInChildren<Animator>().SetTrigger("Win");
+               //StartCoroutine(DeathRoutine())
+                //SceneManager.LoadScene("Win");
+            }
         }
     }
+   
 
     //IEnumerator DeathRoutine()
     //{

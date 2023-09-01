@@ -264,18 +264,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3583300992115082159, guid: b09a38f8a2980ba4196b94145cfba621, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3583300992115082159, guid: b09a38f8a2980ba4196b94145cfba621, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3583300992115082159, guid: b09a38f8a2980ba4196b94145cfba621, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3583300992115082159, guid: b09a38f8a2980ba4196b94145cfba621, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -323,13 +311,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6929370346171576778, guid: b09a38f8a2980ba4196b94145cfba621, type: 3}
+    - target: {fileID: 4019360954635616725, guid: b09a38f8a2980ba4196b94145cfba621, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4019360954635616725, guid: b09a38f8a2980ba4196b94145cfba621, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8423235894658541606, guid: b09a38f8a2980ba4196b94145cfba621, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -0.87939453
+    - target: {fileID: 6929370346171576778, guid: b09a38f8a2980ba4196b94145cfba621, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -367,6 +359,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1255991748 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9069231670509056524, guid: b09a38f8a2980ba4196b94145cfba621, type: 3}
+  m_PrefabInstance: {fileID: 1255991744}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1930349031
@@ -566,9 +569,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _textPlayerLife: {fileID: 1255991747}
   _textScore: {fileID: 1255991746}
-  _lifePlayer: 3
   _SlyderUltimBar: {fileID: 1255991745}
   _score: 0
+  _lifePlayer: 3
+  _SlyderHealth: {fileID: 1255991748}
 --- !u!4 &2020116613
 Transform:
   m_ObjectHideFlags: 0
