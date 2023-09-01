@@ -35,7 +35,7 @@ public class Health : MonoBehaviour
         if (count < 0) { Debug.LogError(""); return; }
 
         // Update Health
-        if (IsEnemy() || IsPlayer() || gameObject.CompareTag("Boss"))
+        if (IsEnemy() || IsPlayer())
         {
             _currentHealth = Mathf.Max(0, _currentHealth-count);
         }
@@ -44,12 +44,11 @@ public class Health : MonoBehaviour
         {
             GameManager.instance.SuppLife(_currentHealth);
         }
-        
 
         // Death
         if (IsDead())
         {
-            Debug.Log("dfdf");
+            
             _animator.SetTrigger("Death");
 
             //StartCoroutine(DeathRoutine());
