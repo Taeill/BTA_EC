@@ -24,7 +24,8 @@ public class Enemy_AnimEvent : MonoBehaviour
 
     IEnumerator ComboReset()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
         _Combo.ResetComboIndex();
+
     }
 }

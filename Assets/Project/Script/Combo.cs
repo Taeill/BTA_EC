@@ -21,22 +21,16 @@ public class Combo : MonoBehaviour
                 break;
             case 1:
                 _charReaction.Hit(target, sender);
-                _combo = true;
                 break;
             case 2:
                 _charReaction.HitKnockback(target, sender);
-                _combo = false;
                 break;
         }
     }
 
     public void ResetComboIndex()
     {
-        if (!_combo)
-        {
-            _comboIndex = 0;
-        }
-        
+        _comboIndex = 0; 
     }
 
     public void AddComboIndex()
