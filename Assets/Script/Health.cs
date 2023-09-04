@@ -59,6 +59,7 @@ public class Health : MonoBehaviour
             if (IsEnemy())
             {
                 GameManager.instance.AddScore(10);
+
             }
             if(IsBoss())
             {

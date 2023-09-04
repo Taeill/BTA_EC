@@ -7,7 +7,6 @@ public class Combo : MonoBehaviour
     [SerializeField] Character_Reaction _charReaction;
 
     int _comboIndex = 0;
-    bool _combo = false;
 
     public void Comboing(GameObject target, GameObject sender)
     {
