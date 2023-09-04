@@ -10,7 +10,7 @@ public class PrepareScene : MonoBehaviour
     {
         SceneManager.LoadScene("Interface", LoadSceneMode.Additive);
         SceneManager.LoadScene("Environnment", LoadSceneMode.Additive);
-
+        SceneManager.LoadScene("BossScene",LoadSceneMode.Additive);
     }
 
     // Update is called once per frame

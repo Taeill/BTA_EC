@@ -481,6 +481,7 @@ MonoBehaviour:
   _score: 0
   _lifePlayer: 5
   _SlyderHealth: {fileID: 1255991748}
+  _lifeBoss: 100
 --- !u!4 &2020116613
 Transform:
   m_ObjectHideFlags: 0

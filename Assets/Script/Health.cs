@@ -40,12 +40,17 @@ public class Health : MonoBehaviour
         if (IsEnemy() || IsPlayer() || IsBoss())
         {
             _currentHealth = Mathf.Max(0, _currentHealth-count);
+            if(IsBoss() ) 
+            {
+                GameManager.instance.SuppLifeBoss(_currentHealth);
+            }
         }
         // PLayer update slider
         if (IsPlayer())
         {
             GameManager.instance.SuppLife(_currentHealth);
         }
+
 
         // Death
         if (IsDead())

@@ -59,7 +59,7 @@ public class Ultim : MonoBehaviour
                 if (h != null)
                 {
 
-                    if (el.transform.root.gameObject.CompareTag("Enemi"))
+                    if (el.transform.root.gameObject.CompareTag("Enemi") || el.transform.root.gameObject.CompareTag("Boss"))
                     {
                         h.TakeDomage(10);
 
