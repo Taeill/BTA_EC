@@ -62,10 +62,7 @@ public class BossBehavior : MonoBehaviour
         {
             spawned.GetComponent<Boss_>().Owner = gameObject.GetComponent<BossBehavior>();
         }
-        else if (spawned.GetComponent<Enemy_Behavior>() != null)
-        {
-            spawned.GetComponent<Boss_>().Owner = gameObject.GetComponent<BossBehavior>();
-        }
+        
 
         _spawnedObj.Add(spawned.gameObject);
         yield return new WaitForSeconds(2);
@@ -85,7 +82,12 @@ public class BossBehavior : MonoBehaviour
         {
             case 2:
                 GameObject _spawnedEnemy = Instantiate(_enemyToSpawn, transform.position, transform.rotation);
+                if (_spawnedEnemy.GetComponent<Enemy_Behavior>() != null)
+                {
+                    _spawnedEnemy.GetComponent<Boss_>().Owner = gameObject.GetComponent<BossBehavior>();
+                }
                 _spawnedObj.Add(_spawnedEnemy.gameObject);
+                
                 break;
         }
     }
