@@ -33,17 +33,15 @@ public class GameManager : MonoBehaviour
     {
 
         instance = this;
-        if(_textPlayerLife!=null) _textPlayerLife.text = _lifePlayer.ToString();
-
         if (_SlyderHealth != null) _SlyderHealth.value = _lifePlayer;
 
 
         
     }
 
-    IEnumerator Start()
+    public IEnumerator BossSetup()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(0.1f);
 
         //Recup du slider -> transform en gameObject et "find" le gameObject dans la scene ->recuperation du slider
         _SlyderHealthBoss = GameObject.Find("HpBarBoss").GetComponent<Slider>();

@@ -11,9 +11,12 @@ public class DeathAnimationEvent : MonoBehaviour
     
     public void DeathTime()
     {
-        if (_objectToDestroy.GetComponent<Enemy_Behavior>().BossSpawned)
+        if (_objectToDestroy.GetComponent<Enemy_Behavior>() != null)
         {
+            if (_objectToDestroy.GetComponent<Enemy_Behavior>().BossSpawned)
+            {
             _objectToDestroy.GetComponent<Enemy_Behavior>().Owner._spawnedObj.RemoveAt(_objectToDestroy.GetComponent<Enemy_Behavior>().OwnerListIndex);
+            }
         }
         if (_objectToDestroy == gameObject.transform.root.CompareTag("Player"))
         {
