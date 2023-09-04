@@ -10,11 +10,14 @@ public class SceneTransition : MonoBehaviour
     [SerializeField] GameObject[] _enableList;
     [SerializeField] GameObject _fadeObject;
     [SerializeField] Collider2D _camColliderBoss;
+    [SerializeField] AudioSource _audioSourceChange;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.transform.root.CompareTag("Player"))
         {
+            AudioSource audio = GetComponent<AudioSource>();
+            audio.Play();
             
             StartCoroutine(StartBossFight());
         }
@@ -24,6 +27,9 @@ public class SceneTransition : MonoBehaviour
     IEnumerator StartBossFight()
     {
         _fadeObject.GetComponent<Animation>().Play();
+
+
+
 
         yield return new WaitForSeconds(2);
 
