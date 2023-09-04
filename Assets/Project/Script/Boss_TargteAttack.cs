@@ -13,12 +13,19 @@ public class Boss_ : MonoBehaviour
     [SerializeField] float _speed = 1;
     float _birthtime;
     float _lifeSpan;
-    float _maxTime = 5;
+    float _maxTime = 8;
     float _percentTime;
+
+    BossBehavior _owner;
+
+    int _ownerListIndex;
+
+    public BossBehavior Owner { get => _owner; set => _owner = value; }
+
     private void Start()
     {
         _birthtime = Time.realtimeSinceStartup;
-        _lifeSpan =  Random.Range(2,10);
+        _lifeSpan =  Random.Range(2, _maxTime);
         StartCoroutine(TargetRoaming());
     }
 
@@ -55,6 +62,7 @@ public class Boss_ : MonoBehaviour
         {
             StopCoroutine(Blink(_sprite));
             Shoot();
+            Owner._spawnedObj.RemoveAt(_ownerListIndex);
             Destroy(this.transform.root.gameObject);
         }
 

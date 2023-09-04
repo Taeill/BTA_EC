@@ -18,6 +18,8 @@ public class Enemy_Movement : MonoBehaviour
 
     bool _stun = false;
 
+    
+
     public bool Stun { get => _stun; set => _stun = value; }
 
 

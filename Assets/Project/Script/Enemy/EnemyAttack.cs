@@ -36,6 +36,7 @@ public class EnemyAttack : MonoBehaviour
                 {
                     _particulesHit.Invoke();
                     //SendAttack
+                    Debug.Log(collider);
                     _combo.Comboing(collider.transform.gameObject,transform.gameObject);
                 }
             }
