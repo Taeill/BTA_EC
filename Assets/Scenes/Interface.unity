@@ -131,9 +131,29 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 675851414821956999, guid: b09a38f8a2980ba4196b94145cfba621, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1587604024214107952, guid: b09a38f8a2980ba4196b94145cfba621, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2102044040219104126, guid: b09a38f8a2980ba4196b94145cfba621, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2508916795424810518, guid: b09a38f8a2980ba4196b94145cfba621, type: 3}
       propertyPath: m_Name
       value: CanvasLifeAndScore
+      objectReference: {fileID: 0}
+    - target: {fileID: 2789561139299797229, guid: b09a38f8a2980ba4196b94145cfba621, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3132200364209093022, guid: b09a38f8a2980ba4196b94145cfba621, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3583300992115082159, guid: b09a38f8a2980ba4196b94145cfba621, type: 3}
       propertyPath: m_Pivot.x
@@ -219,12 +239,28 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3746795656105590528, guid: b09a38f8a2980ba4196b94145cfba621, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4019360954635616725, guid: b09a38f8a2980ba4196b94145cfba621, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4019360954635616725, guid: b09a38f8a2980ba4196b94145cfba621, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4557973503858820540, guid: b09a38f8a2980ba4196b94145cfba621, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5144182417856097849, guid: b09a38f8a2980ba4196b94145cfba621, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5605922610185310941, guid: b09a38f8a2980ba4196b94145cfba621, type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6700735060267226042, guid: b09a38f8a2980ba4196b94145cfba621, type: 3}
@@ -249,10 +285,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6700735060267226042, guid: b09a38f8a2980ba4196b94145cfba621, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 15
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6929370346171576778, guid: b09a38f8a2980ba4196b94145cfba621, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7241851514591101700, guid: b09a38f8a2980ba4196b94145cfba621, type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8423235894658541606, guid: b09a38f8a2980ba4196b94145cfba621, type: 3}
@@ -285,7 +325,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8423235894658541606, guid: b09a38f8a2980ba4196b94145cfba621, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 2.000061
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9069231670509056524, guid: b09a38f8a2980ba4196b94145cfba621, type: 3}
+      propertyPath: m_Value
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 9069231670509056524, guid: b09a38f8a2980ba4196b94145cfba621, type: 3}
+      propertyPath: m_MaxValue
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -535,7 +583,7 @@ MonoBehaviour:
   _textScore: {fileID: 1255991746}
   _SlyderUltimBar: {fileID: 1255991745}
   _score: 0
-  _lifePlayer: 5
+  _lifePlayer: 10
   _SlyderHealth: {fileID: 1255991748}
   _lifeBoss: 100
 --- !u!4 &2020116613

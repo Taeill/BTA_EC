@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7161f4ad315aeb8439df7b50014bc23c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _objectToDestroy: {fileID: 0}
+  _objectToDestroy: {fileID: 8207404080157879888}
 --- !u!1 &3090234514495049931
 GameObject:
   m_ObjectHideFlags: 0
@@ -15371,8 +15371,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47ecef30812894545907fe7cea1a5add, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentHealth: 3
-  _hpMax: 3
+  _currentHealth: 10
+  _hpMax: 10
   _animator: {fileID: 6431427534324078488}
 --- !u!1 &8280917736066516417
 GameObject:

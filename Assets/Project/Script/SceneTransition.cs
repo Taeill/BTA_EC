@@ -16,9 +16,8 @@ public class SceneTransition : MonoBehaviour
     {
         if (collision.gameObject.transform.root.CompareTag("Player"))
         {
-            AudioSource audio = GetComponent<AudioSource>();
-            audio.Play();
-            
+            _audioSourceChange.Play();
+
             StartCoroutine(StartBossFight());
         }
 
@@ -46,5 +45,6 @@ public class SceneTransition : MonoBehaviour
         {
             item.gameObject.SetActive(true);
         }
+        StartCoroutine(GameManager.instance.BossSetup() );
     }
 }
