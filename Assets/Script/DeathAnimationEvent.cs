@@ -14,7 +14,7 @@ public class DeathAnimationEvent : MonoBehaviour
         
         Destroy(_objectToDestroy);
 
-        if (_objectToDestroy == gameObject.CompareTag("Player"))
+        if (_objectToDestroy == gameObject.transform.root.CompareTag("Player"))
         {
             SceneManager.LoadScene("GameOver");
         }
