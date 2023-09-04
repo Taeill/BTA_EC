@@ -68,7 +68,7 @@ public class Health : MonoBehaviour
             }
             if(IsBoss())
             {
-                Debug.Log("BossMort");
+                
                 StartCoroutine(LoadSceneWin());
                 PlayerMovement.Instance.transform.root.gameObject.GetComponentInChildren<Animator>().SetTrigger("Win");
                //StartCoroutine(DeathRoutine())
