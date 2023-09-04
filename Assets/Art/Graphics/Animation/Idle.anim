@@ -78,4 +78,11 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0
+    functionName: AnimComboReset
+    data: 
+    objectReferenceParameter: {fileID: 8207404080157879888, guid: 5201ffd8955f3ae42b084440fa4d0751, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

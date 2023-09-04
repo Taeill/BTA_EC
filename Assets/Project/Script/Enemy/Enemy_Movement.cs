@@ -8,12 +8,20 @@ public class Enemy_Movement : MonoBehaviour
     [SerializeField] float _roamingAreaSize = 10;
     [SerializeField] Rigidbody2D _rgbd2d;
     [SerializeField] Animator _Animator;
+    [SerializeField] float _speed = 2;
 
     private bool _playerInRange = false;
     private bool _currentGoalDone = true;
     private bool _currentWaitDone = true;
     private Vector3 _currentGoal;
     private Vector2 _startPos;
+
+    bool _stun = false;
+
+    
+
+    public bool Stun { get => _stun; set => _stun = value; }
+
 
 
     //Constructor
@@ -23,7 +31,7 @@ public class Enemy_Movement : MonoBehaviour
         set
         {
             _rgbd2d.velocity = value;
-            _Animator.SetFloat("Velocity", value.magnitude);
+            _Animator.SetFloat("Speed", value.magnitude*10);
             
             if (value.x >= 0.1) 
             {
@@ -36,6 +44,7 @@ public class Enemy_Movement : MonoBehaviour
         }
     }
 
+    
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -61,35 +70,50 @@ public class Enemy_Movement : MonoBehaviour
 
     private void Update()
     {
-        if (_playerInRange) // Chase And Fight Behavior
+        if (!Stun)
         {
-            
+            if (_playerInRange) // Chase And Fight Behavior
+            {
 
-            if (Vector3.Distance(transform.position, PlayerMovement.Instance.transform.position) <= 1)
-            {
-                _Animator.SetTrigger("Attack");
-                _enemyVelocity = Vector3.zero;
+
+                if (Vector3.Distance(transform.position, PlayerMovement.Instance.transform.position) <= 1)
+                {
+                    _enemyVelocity = Vector3.zero;
+
+                    int randomInt = (int) Random.Range(0, 200);
+                    switch (randomInt)
+                    {
+                        case 1:
+                            _Animator.SetTrigger("Attack");
+                            
+                            break;
+                        
+                    }
+                    
+                }
+                else
+                {
+                    _enemyVelocity = (new Vector3(PlayerMovement.Instance.transform.position.x, PlayerMovement.Instance.transform.position.y, 0) - transform.position).normalized * _speed;
+                }
             }
-            else
+            else if (!_playerInRange) //Idle Routine
             {
-                _enemyVelocity = (new Vector3(PlayerMovement.Instance.transform.position.x, PlayerMovement.Instance.transform.position.y, 0) - transform.position).normalized;
+                if (_currentGoalDone && _currentWaitDone)
+                {
+                    _currentGoalDone = false;
+                    _currentWaitDone = false;
+                    GoTo(FindLocation());
+                }
+                if (Vector3.Distance(transform.position, _currentGoal) <= 1 && !_currentGoalDone)
+                {
+                    _enemyVelocity = Vector3.zero;
+                    StartCoroutine(RandomWaitBetweenWalk());
+                    _currentGoalDone = true;
+                }
             }
+
         }
-        else if (!_playerInRange) //Idle Routine
-        {
-            if (_currentGoalDone && _currentWaitDone)
-            {
-                _currentGoalDone = false;
-                _currentWaitDone = false;
-                GoTo(FindLocation()); 
-            }
-            if (Vector3.Distance(transform.position, _currentGoal) <= 1 && !_currentGoalDone)
-            {
-                _enemyVelocity = Vector3.zero;
-                StartCoroutine(RandomWaitBetweenWalk());
-                _currentGoalDone = true;
-            }
-        }
+        
         
     }
     
@@ -102,7 +126,7 @@ public class Enemy_Movement : MonoBehaviour
 
     void GoTo(Vector2 a)
     {
-        _enemyVelocity = (new Vector3 (a.x,a.y,0) - transform.position).normalized;
+        _enemyVelocity = (new Vector3 (a.x,a.y,0) - transform.position).normalized * _speed;
     }
 
     IEnumerator RandomWaitBetweenWalk()

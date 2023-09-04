@@ -1,28 +1,43 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EnemyAttack : MonoBehaviour
 {
     [SerializeField] Character_Reaction _reactionManager;
     [SerializeField] SpriteRenderer _spriterender;
 
+    [SerializeField] Combo _combo;
+
+    [SerializeField] Animator _anim;
+    [SerializeField] AnimationClip _animAttack;
+
     List <Collider2D> _collidingObject = new List <Collider2D>();
+    [SerializeField] UnityEvent _particulesHit;
+
 
     
     
     public void Attack()
     {
+        //Increment Combo Index When Attacking While Already Attacking
+        if (_anim.GetCurrentAnimatorClipInfo(0)[0].clip == _animAttack)
+        {  
+            _combo.AddComboIndex();
+        }
+
+
         if (CheckCollider().Count>0)
         {
             foreach (var collider in _collidingObject)
             {
                 if (collider.transform.root.GetComponent<PlayerMovement>() != null)
                 {
+                    _particulesHit.Invoke();
                     //SendAttack
-                    _reactionManager.Blinking(collider.transform.root.GetComponentsInChildren<SpriteRenderer>()[0].transform.gameObject);
-                    _reactionManager.Knockback(collider.transform.root.gameObject, this.gameObject);
-                    collider.transform.root.gameObject.GetComponent<Health>().TakeDomage();
+                    Debug.Log(collider);
+                    _combo.Comboing(collider.transform.gameObject,transform.gameObject);
                 }
             }
         }

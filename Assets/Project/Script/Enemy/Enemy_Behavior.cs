@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class Enemy_Behavior : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    BossBehavior _owner;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    int _ownerListIndex;
+
+    bool _bossSpawned;
+
+    public BossBehavior Owner { get => _owner; set => _owner = value; }
+    public int OwnerListIndex { get => _ownerListIndex; set => _ownerListIndex = value; }
+    public bool BossSpawned { get => _bossSpawned; set => _bossSpawned = value; }
 }

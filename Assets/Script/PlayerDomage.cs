@@ -2,19 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class PlayerDomage : MonoBehaviour
 {
     [SerializeField] bool _inputPunch = false;
-
+    [Header("Animation && Particules")]
     [SerializeField] Animator _animator;
-    [SerializeField] string _animationPunch;
-    [SerializeField] string _animationPunch2;
-    [SerializeField] string _animationPunch3;
+    [SerializeField] UnityEvent _particulesHit;
     [SerializeField] int _countPunch = 0;
     [SerializeField] Character_Reaction _reactionManager;
     List<Collider2D> _collidingObject = new List<Collider2D>();
+
+    [SerializeField] Combo _combo;
+
+    [SerializeField] AnimationClip[] _animAttack;
 
     //[SerializeField] float _nextPunchTime=0f;
 
@@ -37,7 +40,15 @@ public class PlayerDomage : MonoBehaviour
         {
             case InputActionPhase.Started:
                 _inputPunch = true;
-                
+                //Increment Combo Index When Attacking While Already Attacking
+                foreach (var item in _animAttack)
+                {
+                    if (_animator.GetCurrentAnimatorClipInfo(0)[0].clip == item)
+                    {
+                        _combo.AddComboIndex();
+                    }
+                }
+
                 break;
             case InputActionPhase.Canceled:
                 _inputPunch = false;
@@ -84,16 +95,14 @@ public class PlayerDomage : MonoBehaviour
     {
         if (CheckCollider().Count > 0)
         {
-            foreach (var collider in _collidingObject)
+            foreach (var collider in _collidingObject.ToArray())
             {
                 var h = collider.attachedRigidbody.GetComponent<Health>();
                 if (h != null)
                 {
                     Debug.Log("Touché!");
-
-                    h.TakeDomage();
-                    _reactionManager.Blinking(collider.transform.root.GetComponentsInChildren<SpriteRenderer>()[0].transform.gameObject);
-                    _reactionManager.Knockback(collider.transform.root.gameObject, this.gameObject);
+                    _particulesHit.Invoke();
+                    _combo.Comboing(collider.transform.gameObject, transform.gameObject);
                 }
             }
         }
