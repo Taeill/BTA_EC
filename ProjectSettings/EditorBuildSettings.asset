@@ -17,4 +17,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Win.unity
     guid: 113aaf8e95cc3e14cba2ef56ab5a3a11
+  - enabled: 1
+    path: Assets/Scenes/MainScene.unity
+    guid: 395315a0700b8334fbdb6ab4e62dde28
+  - enabled: 1
+    path: Assets/Scenes/Interface.unity
+    guid: 148eb55b55dbbac4593cfe468fe3e859
+  - enabled: 1
+    path: Assets/Scenes/Environnment.unity
+    guid: 68ef94d23a8bda34792c5cf7e01115b7
+  - enabled: 1
+    path: Assets/Scenes/BossScene.unity
+    guid: 03a8bef6ec1bc124f88db33567ebdda0
   m_configObjects: {}

@@ -40,12 +40,17 @@ public class Health : MonoBehaviour
         if (IsEnemy() || IsPlayer() || IsBoss())
         {
             _currentHealth = Mathf.Max(0, _currentHealth-count);
+            if(IsBoss() ) 
+            {
+                GameManager.instance.SuppLifeBoss(_currentHealth);
+            }
         }
         // PLayer update slider
         if (IsPlayer())
         {
             GameManager.instance.SuppLife(_currentHealth);
         }
+
 
         // Death
         if (IsDead())
@@ -64,13 +69,20 @@ public class Health : MonoBehaviour
             if(IsBoss())
             {
                 Debug.Log("BossMort");
+                StartCoroutine(LoadSceneWin());
                 PlayerMovement.Instance.transform.root.gameObject.GetComponentInChildren<Animator>().SetTrigger("Win");
                //StartCoroutine(DeathRoutine())
                 //SceneManager.LoadScene("Win");
             }
         }
+   IEnumerator LoadSceneWin() 
+        {
+            yield return new WaitForSeconds(2f);
+            SceneManager.LoadScene("Win");
+            
+        
+        }
     }
-   
 
     //IEnumerator DeathRoutine()
     //{

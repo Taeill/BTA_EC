@@ -13,8 +13,14 @@ public class DeathAnimationEvent : MonoBehaviour
     {
         _objectToDestroy.GetComponent<Enemy_Behavior>().Owner._spawnedObj.RemoveAt(_objectToDestroy.GetComponent<Enemy_Behavior>().OwnerListIndex);
         Destroy(_objectToDestroy);
-        SceneManager.LoadScene("GameOver");
 
+        if (_objectToDestroy == gameObject.transform.root.CompareTag("Player"))
+        {
+            SceneManager.LoadScene("GameOver");
+        }
+        else
+            return;
+        
     }
-
+   
 }

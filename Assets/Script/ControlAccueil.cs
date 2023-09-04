@@ -6,9 +6,17 @@ using UnityEngine.SceneManagement;
 public class ControlAccueil : MonoBehaviour
 {
     // Start is called before the first frame update
-   public void ChangeScene(string _sceneName)
+   public void ChangeScene()
     {
-        SceneManager.LoadScene( _sceneName );
+        SceneManager.LoadScene("MainScene");
+       
+        //SceneManager.LoadSceneAsync("MainScene", LoadSceneMode.Additive);
+        
+        //StartCoroutine(Loading());
+
+
+
+
     }
     public void Quit()
     {
@@ -17,5 +25,9 @@ public class ControlAccueil : MonoBehaviour
     public void Menu(string _menuName)
     {
         SceneManager.LoadScene(_menuName);
+    }
+    IEnumerator Loading()
+    {
+        yield return SceneManager.UnloadSceneAsync("MainScene");
     }
 }
