@@ -5561,6 +5561,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b39566537d35fa4f974effbd47beed7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _animator: {fileID: 0}
+  _animator2: {fileID: 0}
 --- !u!1 &9162002621694137143
 GameObject:
   m_ObjectHideFlags: 0
@@ -5652,3 +5654,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b39566537d35fa4f974effbd47beed7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _animator: {fileID: 232261071875986742}
+  _animator2: {fileID: 22100000, guid: 9838c4c98b4bf8d4ca37cc90a0fa9a56, type: 2}
